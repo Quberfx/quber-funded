@@ -4,16 +4,36 @@ export default function ScrollReveal({
   children,
   className = "",
   delay = 0,
+  duration = 1000,
   direction = "up", // up, down, left, right, fade
+  scale = false,
+  blur = false,
+  once = true,
 }) {
   const [isVisible, setIsVisible] = useState(false);
   const ref = useRef(null);
 
   useEffect(() => {
+    // Check for reduced motion preference
+    const prefersReducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
+
+    if (prefersReducedMotion) {
+      // Use setTimeout to avoid setState in effect warning
+      setTimeout(() => setIsVisible(true), 0);
+      return;
+    }
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
           setIsVisible(true);
+          if (once) {
+            observer.disconnect();
+          }
+        } else if (!once) {
+          setIsVisible(false);
         }
       },
       {
@@ -22,45 +42,61 @@ export default function ScrollReveal({
       },
     );
 
-    if (ref.current) {
-      observer.observe(ref.current);
+    const currentRef = ref.current;
+    if (currentRef) {
+      observer.observe(currentRef);
     }
 
     return () => {
-      if (ref.current) {
-        observer.unobserve(ref.current);
+      if (currentRef) {
+        observer.unobserve(currentRef);
       }
     };
-  }, []);
+  }, [once]);
 
   const getAnimationClass = () => {
-    const baseClass = "transition-all duration-1000 ease-out";
+    const baseClass = "transition-all ease-out";
 
     if (!isVisible) {
+      let transform = "";
+      let opacity = "opacity-0";
+      let scaleTransform = scale ? "scale-95" : "";
+      let blurFilter = blur ? "blur-sm" : "";
+
       switch (direction) {
         case "up":
-          return `${baseClass} opacity-0 translate-y-10`;
+          transform = "translate-y-10";
+          break;
         case "down":
-          return `${baseClass} opacity-0 -translate-y-10`;
+          transform = "-translate-y-10";
+          break;
         case "left":
-          return `${baseClass} opacity-0 translate-x-10`;
+          transform = "translate-x-10";
+          break;
         case "right":
-          return `${baseClass} opacity-0 -translate-x-10`;
+          transform = "-translate-x-10";
+          break;
         case "fade":
-          return `${baseClass} opacity-0`;
+          transform = "";
+          break;
         default:
-          return `${baseClass} opacity-0 translate-y-10`;
+          transform = "translate-y-10";
       }
+
+      return `${baseClass} ${opacity} ${transform} ${scaleTransform} ${blurFilter}`.trim();
     }
 
-    return `${baseClass} opacity-100 translate-y-0 translate-x-0`;
+    return `${baseClass} opacity-100 translate-y-0 translate-x-0 scale-100 blur-0`;
   };
 
   return (
     <div
       ref={ref}
       className={`${getAnimationClass()} ${className}`}
-      style={{ transitionDelay: `${delay}ms` }}
+      style={{
+        transitionDelay: `${delay}ms`,
+        transitionDuration: `${duration}ms`,
+      }}
     >
       {children}
     </div>

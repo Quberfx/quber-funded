@@ -5,6 +5,9 @@ import {
   GrowthScale,
   MobileWithoutCircle,
 } from "../assets/images/index";
+import {
+  MobileCryptoVideo
+} from "../assets/videos/index";
 import ScrollReveal from "./shared/ScrollReveal";
 
 export default function FundingPaths() {
@@ -195,7 +198,7 @@ export default function FundingPaths() {
 
                   {/* Top Left Icon - Positioned on circle 2 */}
                   <div className="absolute top-[15%] left-[-25%] z-20 hidden lg:block animate-float">
-                    <div className="w-12 h-12 xl:w-14 xl:h-14 rounded-full bg-blue-600 flex items-center justify-center icon-glow hover:scale-110 transition-transform duration-300">
+                    <div className="w-12 h-12 xl:w-14 xl:h-14 rounded-full bg-blue-600 flex items-center justify-center hover:scale-110 transition-transform duration-300">
                       <img
                         src={features[0].icon}
                         alt=""
@@ -206,7 +209,7 @@ export default function FundingPaths() {
 
                   {/* Bottom Left Icon - Positioned on circle 2 */}
                   <div className="absolute bottom-[15%] left-[-25%] z-20 hidden lg:block animate-float-delayed-1">
-                    <div className="w-12 h-12 xl:w-14 xl:h-14 rounded-full bg-blue-600 flex items-center justify-center icon-glow hover:scale-110 transition-transform duration-300">
+                    <div className="w-12 h-12 xl:w-14 xl:h-14 rounded-full bg-blue-600 flex items-center justify-center hover:scale-110 transition-transform duration-300">
                       <img
                         src={features[1].icon}
                         alt=""
@@ -217,7 +220,7 @@ export default function FundingPaths() {
 
                   {/* Top Right Icon - Positioned on circle 2 */}
                   <div className="absolute top-[15%] right-[-25%] z-20 hidden lg:block animate-float-delayed-2">
-                    <div className="w-12 h-12 xl:w-14 xl:h-14 rounded-full bg-blue-600 flex items-center justify-center icon-glow hover:scale-110 transition-transform duration-300">
+                    <div className="w-12 h-12 xl:w-14 xl:h-14 rounded-full bg-blue-600 flex items-center justify-center hover:scale-110 transition-transform duration-300">
                       <img
                         src={features[2].icon}
                         alt=""
@@ -228,7 +231,7 @@ export default function FundingPaths() {
 
                   {/* Bottom Right Icon - Positioned on circle 2 */}
                   <div className="absolute bottom-[15%] right-[-25%] z-20 hidden lg:block animate-float-delayed-3">
-                    <div className="w-12 h-12 xl:w-14 xl:h-14 rounded-full bg-blue-600 flex items-center justify-center icon-glow hover:scale-110 transition-transform duration-300">
+                    <div className="w-12 h-12 xl:w-14 xl:h-14 rounded-full bg-blue-600 flex items-center justify-center hover:scale-110 transition-transform duration-300">
                       <img
                         src={features[3].icon}
                         alt=""
