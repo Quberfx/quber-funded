@@ -1,4 +1,8 @@
-import { AboutUsHeaderBg, AboutUsIllustration } from "../assets/images/index";
+import {
+  AboutUsHeaderBg,
+  AboutUsIllustration,
+  Integration,
+} from "../assets/images/index";
 import { useState, useEffect, useRef } from "react";
 import ScrollingBanner from "../components/ScrollingBanner";
 
@@ -16,8 +20,6 @@ export default function AboutUs() {
     stat3: 0,
     stat4: 0,
   });
-
-  const blueCardTexts = ["Backed By Real Capital", "Built For Real Traders"];
 
   // Final values for stats
   const finalStats = {
@@ -169,7 +171,8 @@ export default function AboutUs() {
             ref={blueCardRef}
             className="rounded-3xl p-6 md:p-10 lg:p-12 mb-6 text-white transition-all duration-700"
             style={{
-              background: "linear-gradient(285.87deg, #0156FF 7.76%, #001D58 103.64%)",
+              background:
+                "linear-gradient(285.87deg, #0156FF 7.76%, #001D58 103.64%)",
               opacity: blueCardVisible ? 1 : 0.3,
               transform: blueCardVisible
                 ? "translateY(0) scale(1)"
@@ -181,7 +184,7 @@ export default function AboutUs() {
               <div className="flex-1 flex items-center gap-4">
                 <div className="max-w-[482px]">
                   <p
-                    className="text-[20px] md:text-[28px] lg:text-[36px] font-normal leading-[140%] tracking-[0%]"
+                    className="text-[18px] md:text-[24px] lg:text-[32px] font-normal leading-[140%] tracking-[0%]"
                     style={{ fontFamily: "Manrope, sans-serif" }}
                   >
                     Trade With Our Dedicated{" "}
@@ -190,26 +193,20 @@ export default function AboutUs() {
                 </div>
               </div>
 
-              {/* Right side - Single item that changes on scroll with fade transition */}
-              <div className="flex-1 relative h-[100px] md:h-[80px]">
+              {/* Right side - Stacked items with parallax effect */}
+              <div className="flex-1 flex flex-col gap-4">
                 {/* First text - Backed By Real Capital */}
                 <div
-                  className={`absolute top-0 left-0 right-0 flex items-center gap-3 transition-all duration-1000 ease-in-out justify-end ${
-                    currentTextIndex === 0
-                      ? "opacity-100 translate-y-0"
-                      : "opacity-0 -translate-y-8 pointer-events-none"
+                  className={`flex items-center gap-3 transition-all duration-700 ease-in-out ${
+                    currentTextIndex === 0 ? "opacity-100" : "opacity-30"
                   }`}
                 >
-                  <div className="rounded-full p-3 bg-blue-500 flex-shrink-0">
-                    <svg
-                      className="w-6 h-6 text-white"
-                      fill="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path d="M13 2.05v2.02c3.95.49 7 3.85 7 7.93 0 4.08-3.05 7.44-7 7.93v2.02c5.05-.5 9-4.76 9-9.95s-3.95-9.45-9-9.95zM12 19c-3.87 0-7-3.13-7-7s3.13-7 7-7 7 3.13 7 7-3.13 7-7 7z" />
-                    </svg>
-                  </div>
-                  <div className="flex-1">
+                  {currentTextIndex === 0 && (
+                    <div className="flex-shrink-0">
+                      <img src={Integration} alt="integration_icon" />
+                    </div>
+                  )}
+                  <div>
                     <p
                       className="text-[20px] md:text-[24px] lg:text-[32px] font-bold leading-[140%] tracking-[-0.02em]"
                       style={{ fontFamily: "Manrope, sans-serif" }}
@@ -221,22 +218,16 @@ export default function AboutUs() {
 
                 {/* Second text - Built For Real Traders */}
                 <div
-                  className={`absolute top-0 left-0 right-0 flex items-center gap-3 transition-all duration-1000 ease-in-out ${
-                    currentTextIndex === 1
-                      ? "opacity-100 translate-y-0"
-                      : "opacity-0 translate-y-8 pointer-events-none"
+                  className={`flex items-center gap-3 transition-all duration-700 ease-in-out ${
+                    currentTextIndex === 1 ? "opacity-100" : "opacity-30"
                   }`}
                 >
-                  <div className="rounded-full p-3 bg-blue-500 flex-shrink-0">
-                    <svg
-                      className="w-6 h-6 text-white"
-                      fill="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z" />
-                    </svg>
-                  </div>
-                  <div className="flex-1">
+                  {currentTextIndex === 1 && (
+                    <div className="flex-shrink-0">
+                      <img src={Integration} alt="integration_icon" />
+                    </div>
+                  )}
+                  <div>
                     <p
                       className="text-[20px] md:text-[24px] lg:text-[32px] font-bold leading-[140%] tracking-[-0.02em]"
                       style={{ fontFamily: "Manrope, sans-serif" }}
@@ -258,6 +249,65 @@ export default function AboutUs() {
             inside a structured, real-market environment.
           </p>
 
+          {/* Stats Section */}
+          <div
+            ref={statsRef}
+            className="flex flex-col md:flex-row items-center justify-between py-12"
+          >
+            <div className="text-center flex-1">
+              <p className="text-4xl md:text-5xl font-bold text-blue-600 mb-2">
+                {statValues.stat1}%
+              </p>
+              <p className="text-gray-600 text-sm leading-tight">
+                Trader Payout
+                <br />
+                Satisfaction Rate
+              </p>
+            </div>
+
+            {/* Vertical separator */}
+            <div className="hidden md:block w-[1px] h-24 bg-[#B8B8B8]" />
+
+            <div className="text-center flex-1">
+              <p className="text-4xl md:text-5xl font-bold text-blue-600 mb-2">
+                {statValues.stat2}+
+              </p>
+              <p className="text-gray-600 text-sm leading-tight">
+                Years of Combined
+                <br />
+                Market Experience
+              </p>
+            </div>
+
+            {/* Vertical separator */}
+            <div className="hidden md:block w-[1px] h-24 bg-[#B8B8B8]" />
+
+            <div className="text-center flex-1">
+              <p className="text-4xl md:text-5xl font-bold text-blue-600 mb-2">
+                ${statValues.stat3}M+
+              </p>
+              <p className="text-gray-600 text-sm leading-tight">
+                Capital Allocated
+                <br />
+                to Traders
+              </p>
+            </div>
+
+            {/* Vertical separator */}
+            <div className="hidden md:block w-[1px] h-24 bg-[#B8B8B8]" />
+
+            <div className="text-center flex-1">
+              <p className="text-4xl md:text-5xl font-bold text-blue-600 mb-2">
+                {statValues.stat4}+
+              </p>
+              <p className="text-gray-600 text-sm leading-tight">
+                Global Trading
+                <br />
+                Accounts Created
+              </p>
+            </div>
+          </div>
+
           {/* Why Choose Section */}
           <div className="mb-16">
             <h2
@@ -268,7 +318,7 @@ export default function AboutUs() {
             </h2>
 
             {/* Image */}
-            <div className="mb-12 rounded-2xl overflow-hidden shadow-lg">
+            <div className="mb-12 rounded-2xl overflow-hidden">
               <img
                 src={AboutUsIllustration}
                 alt="Trader working"
@@ -278,10 +328,7 @@ export default function AboutUs() {
             </div>
 
             {/* Content with Scroll-based Highlighting */}
-            <div
-              ref={contentRef}
-              className="space-y-8 text-center max-w-[968px] mx-auto"
-            >
+            <div ref={contentRef} className="space-y-8 mx-auto">
               <div className="relative">
                 <p
                   className="text-[24px] md:text-[36px] lg:text-[48px] font-bold leading-[120%] tracking-[-0.04em]"
@@ -385,53 +432,6 @@ export default function AboutUs() {
                     );
                   })}
                 </p>
-              </div>
-
-              {/* Stats Section */}
-              <div
-                ref={statsRef}
-                className="grid grid-cols-2 md:grid-cols-4 gap-8 py-12 border-t border-gray-200"
-              >
-                <div className="text-center">
-                  <p className="text-4xl md:text-5xl font-bold text-blue-600 mb-2">
-                    {statValues.stat1}%
-                  </p>
-                  <p className="text-gray-600 text-sm leading-tight">
-                    Trader Payout
-                    <br />
-                    Satisfaction Rate
-                  </p>
-                </div>
-                <div className="text-center">
-                  <p className="text-4xl md:text-5xl font-bold text-blue-600 mb-2">
-                    {statValues.stat2}+
-                  </p>
-                  <p className="text-gray-600 text-sm leading-tight">
-                    Years of Combined
-                    <br />
-                    Market Experience
-                  </p>
-                </div>
-                <div className="text-center">
-                  <p className="text-4xl md:text-5xl font-bold text-blue-600 mb-2">
-                    ${statValues.stat3}M+
-                  </p>
-                  <p className="text-gray-600 text-sm leading-tight">
-                    Capital Allocated
-                    <br />
-                    to Traders
-                  </p>
-                </div>
-                <div className="text-center">
-                  <p className="text-4xl md:text-5xl font-bold text-blue-600 mb-2">
-                    {statValues.stat4}+
-                  </p>
-                  <p className="text-gray-600 text-sm leading-tight">
-                    Global Trading
-                    <br />
-                    Accounts Created
-                  </p>
-                </div>
               </div>
             </div>
           </div>
