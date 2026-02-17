@@ -67,7 +67,10 @@ export default function Navbar() {
     <header className="bg-white sticky top-0 z-50 border-b border-gray-200">
       <div className="max-w-[88rem] mx-auto px-8 lg:px-12 py-4 flex items-center justify-between">
         {/* LOGO */}
-        <Link to="/" className="flex items-center gap-2 font-semibold text-lg">
+        <Link
+          to="/"
+          className="flex items-center gap-2 font-semibold text-lg scale-[1.25]"
+        >
           <img
             src={QuberLogo}
             alt="Quber Logo"
