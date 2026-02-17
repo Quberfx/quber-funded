@@ -167,17 +167,18 @@ export default function AboutUs() {
           {/* Blue Card Section with Parallax Text Switching */}
           <div
             ref={blueCardRef}
-            className="bg-gradient-to-r from-blue-600 to-blue-900 rounded-3xl p-6 md:p-10 lg:p-12 mb-6 text-white transition-all duration-700"
+            className="rounded-3xl p-6 md:p-10 lg:p-12 mb-6 text-white transition-all duration-700"
             style={{
+              background: "linear-gradient(285.87deg, #0156FF 7.76%, #001D58 103.64%)",
               opacity: blueCardVisible ? 1 : 0.3,
               transform: blueCardVisible
                 ? "translateY(0) scale(1)"
                 : "translateY(50px) scale(0.95)",
             }}
           >
-            <div className="flex flex-col md:flex-row items-center justify-between gap-8">
+            <div className="flex flex-col md:flex-row items-center justify-between gap-6">
               {/* Left side */}
-              <div className="flex items-center gap-4">
+              <div className="flex-1 flex items-center gap-4">
                 <div className="max-w-[482px]">
                   <p
                     className="text-[20px] md:text-[28px] lg:text-[36px] font-normal leading-[140%] tracking-[0%]"
@@ -189,29 +190,60 @@ export default function AboutUs() {
                 </div>
               </div>
 
-              {/* Right side - Single item that changes on scroll */}
-              <div className="flex items-center gap-3 group cursor-pointer transition-all duration-700 hover:scale-105 max-w-[350px]">
-                <div className="rounded-full p-3 bg-blue-500 transition-all duration-500">
-                  <svg
-                    className="w-6 h-6 text-white transition-colors duration-300"
-                    fill="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    {currentTextIndex === 0 ? (
+              {/* Right side - Single item that changes on scroll with fade transition */}
+              <div className="flex-1 relative h-[100px] md:h-[80px]">
+                {/* First text - Backed By Real Capital */}
+                <div
+                  className={`absolute top-0 left-0 right-0 flex items-center gap-3 transition-all duration-1000 ease-in-out justify-end ${
+                    currentTextIndex === 0
+                      ? "opacity-100 translate-y-0"
+                      : "opacity-0 -translate-y-8 pointer-events-none"
+                  }`}
+                >
+                  <div className="rounded-full p-3 bg-blue-500 flex-shrink-0">
+                    <svg
+                      className="w-6 h-6 text-white"
+                      fill="currentColor"
+                      viewBox="0 0 24 24"
+                    >
                       <path d="M13 2.05v2.02c3.95.49 7 3.85 7 7.93 0 4.08-3.05 7.44-7 7.93v2.02c5.05-.5 9-4.76 9-9.95s-3.95-9.45-9-9.95zM12 19c-3.87 0-7-3.13-7-7s3.13-7 7-7 7 3.13 7 7-3.13 7-7 7z" />
-                    ) : (
-                      <path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z" />
-                    )}
-                  </svg>
+                    </svg>
+                  </div>
+                  <div className="flex-1">
+                    <p
+                      className="text-[20px] md:text-[24px] lg:text-[32px] font-bold leading-[140%] tracking-[-0.02em]"
+                      style={{ fontFamily: "Manrope, sans-serif" }}
+                    >
+                      Backed By Real Capital
+                    </p>
+                  </div>
                 </div>
-                <div>
-                  <p
-                    className="text-[20px] md:text-[24px] lg:text-[32px] font-bold leading-[140%] tracking-[-0.02em] transition-all duration-700"
-                    style={{ fontFamily: "Manrope, sans-serif" }}
-                    key={currentTextIndex}
-                  >
-                    {blueCardTexts[currentTextIndex]}
-                  </p>
+
+                {/* Second text - Built For Real Traders */}
+                <div
+                  className={`absolute top-0 left-0 right-0 flex items-center gap-3 transition-all duration-1000 ease-in-out ${
+                    currentTextIndex === 1
+                      ? "opacity-100 translate-y-0"
+                      : "opacity-0 translate-y-8 pointer-events-none"
+                  }`}
+                >
+                  <div className="rounded-full p-3 bg-blue-500 flex-shrink-0">
+                    <svg
+                      className="w-6 h-6 text-white"
+                      fill="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z" />
+                    </svg>
+                  </div>
+                  <div className="flex-1">
+                    <p
+                      className="text-[20px] md:text-[24px] lg:text-[32px] font-bold leading-[140%] tracking-[-0.02em]"
+                      style={{ fontFamily: "Manrope, sans-serif" }}
+                    >
+                      Built For Real Traders
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
