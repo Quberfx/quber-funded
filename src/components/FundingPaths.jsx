@@ -3,11 +3,8 @@ import {
   RiskControl,
   LiveFunded,
   GrowthScale,
-  MobileWithoutCircle,
 } from "../assets/images/index";
-import {
-  MobileCryptoVideo
-} from "../assets/videos/index";
+import { MobileCryptoVideo } from "../assets/videos/index";
 import ScrollReveal from "./shared/ScrollReveal";
 
 export default function FundingPaths() {
@@ -189,15 +186,41 @@ export default function FundingPaths() {
                   </div>
 
                   {/* Mobile Image - Responsive sizing */}
-                  <img
-                    src={MobileWithoutCircle}
-                    alt="Trading Platform Mobile App"
-                    loading="lazy"
-                    className="relative z-10 object-contain drop-shadow-2xl"
-                  />
+                  <div className="relative z-10 w-[280px] h-[570px] lg:w-[320px] lg:h-[650px]">
+                    {/* iPhone 16 Pro Mockup */}
+                    <div className="relative w-full h-full">
+                      {/* iPhone Frame */}
+                      <div className="absolute inset-0 rounded-[50px] bg-gradient-to-br from-gray-800 via-gray-900 to-black shadow-2xl border-[12px] border-gray-900">
+                        {/* Dynamic Island */}
+                        <div className="absolute top-[10px] left-1/2 -translate-x-1/2 w-[120px] h-[35px] bg-black rounded-full z-30"></div>
+
+                        {/* Screen Container */}
+                        <div className="absolute inset-[8px] rounded-[42px] bg-black overflow-hidden">
+                          {/* Video Content */}
+                          <video
+                            src={MobileCryptoVideo}
+                            autoPlay
+                            loop
+                            muted
+                            playsInline
+                            className="w-full h-full object-cover"
+                          />
+                        </div>
+
+                        {/* Side Buttons */}
+                        <div className="absolute left-[-4px] top-[120px] w-[4px] h-[50px] bg-gray-800 rounded-l-lg"></div>
+                        <div className="absolute left-[-4px] top-[180px] w-[4px] h-[50px] bg-gray-800 rounded-l-lg"></div>
+                        <div className="absolute left-[-4px] top-[240px] w-[4px] h-[50px] bg-gray-800 rounded-l-lg"></div>
+                        <div className="absolute right-[-4px] top-[180px] w-[4px] h-[80px] bg-gray-800 rounded-r-lg"></div>
+                      </div>
+
+                      {/* Screen Glow Effect */}
+                      <div className="absolute inset-0 rounded-[50px] bg-blue-500/10 blur-xl"></div>
+                    </div>
+                  </div>
 
                   {/* Top Left Icon - Positioned on circle 2 */}
-                  <div className="absolute top-[15%] left-[-25%] z-20 hidden lg:block animate-float">
+                  <div className="absolute top-[15%] left-[-25%] z-20 hidden lg:block">
                     <div className="w-12 h-12 xl:w-14 xl:h-14 rounded-full bg-blue-600 flex items-center justify-center hover:scale-110 transition-transform duration-300">
                       <img
                         src={features[0].icon}
@@ -208,7 +231,7 @@ export default function FundingPaths() {
                   </div>
 
                   {/* Bottom Left Icon - Positioned on circle 2 */}
-                  <div className="absolute bottom-[15%] left-[-25%] z-20 hidden lg:block animate-float-delayed-1">
+                  <div className="absolute bottom-[15%] left-[-25%] z-20 hidden lg:block">
                     <div className="w-12 h-12 xl:w-14 xl:h-14 rounded-full bg-blue-600 flex items-center justify-center hover:scale-110 transition-transform duration-300">
                       <img
                         src={features[1].icon}
@@ -219,7 +242,7 @@ export default function FundingPaths() {
                   </div>
 
                   {/* Top Right Icon - Positioned on circle 2 */}
-                  <div className="absolute top-[15%] right-[-25%] z-20 hidden lg:block animate-float-delayed-2">
+                  <div className="absolute top-[15%] right-[-25%] z-20 hidden lg:block">
                     <div className="w-12 h-12 xl:w-14 xl:h-14 rounded-full bg-blue-600 flex items-center justify-center hover:scale-110 transition-transform duration-300">
                       <img
                         src={features[2].icon}
@@ -230,7 +253,7 @@ export default function FundingPaths() {
                   </div>
 
                   {/* Bottom Right Icon - Positioned on circle 2 */}
-                  <div className="absolute bottom-[15%] right-[-25%] z-20 hidden lg:block animate-float-delayed-3">
+                  <div className="absolute bottom-[15%] right-[-25%] z-20 hidden lg:block">
                     <div className="w-12 h-12 xl:w-14 xl:h-14 rounded-full bg-blue-600 flex items-center justify-center hover:scale-110 transition-transform duration-300">
                       <img
                         src={features[3].icon}
@@ -246,7 +269,7 @@ export default function FundingPaths() {
             {/* Feature Text - Positioned near icons */}
             <div className="hidden lg:block">
               {/* Top Left Text */}
-              <div className="absolute top-[12%] left-[5%] xl:left-[8%] w-[200px] xl:w-[230px] text-right">
+              <div className="absolute top-[15%] left-[8%] xl:left-[12%] w-[200px] xl:w-[230px] text-right">
                 <h3 className="text-[17px] xl:text-[19px] font-bold mb-1">
                   {features[0].title}
                 </h3>
@@ -256,8 +279,8 @@ export default function FundingPaths() {
               </div>
 
               {/* Bottom Left Text */}
-              <div className="absolute bottom-[12%] left-[5%] xl:left-[8%] w-[200px] xl:w-[230px] text-right">
-                <h3 className="text-[17px] xl:text-[19px] font-bold mb-1">
+              <div className="absolute bottom-[11%] left-[8%] xl:left-[12%] w-[200px] xl:w-[230px] text-right flex flex-col items-end">
+                <h3 className="text-[17px] xl:text-[19px] font-bold mb-1 leading-none">
                   {features[1].title}
                 </h3>
                 <p className="text-gray-400 text-[13px] xl:text-[14px] leading-relaxed">
@@ -266,7 +289,7 @@ export default function FundingPaths() {
               </div>
 
               {/* Top Right Text */}
-              <div className="absolute top-[12%] right-[5%] xl:right-[8%] w-[200px] xl:w-[230px] text-left">
+              <div className="absolute top-[15%] right-[8%] xl:right-[12%] w-[200px] xl:w-[230px] text-left">
                 <h3 className="text-[17px] xl:text-[19px] font-bold mb-1">
                   {features[2].title}
                 </h3>
@@ -276,8 +299,8 @@ export default function FundingPaths() {
               </div>
 
               {/* Bottom Right Text */}
-              <div className="absolute bottom-[12%] right-[5%] xl:right-[8%] w-[200px] xl:w-[230px] text-left">
-                <h3 className="text-[17px] xl:text-[19px] font-bold mb-1">
+              <div className="absolute bottom-[8%] right-[8%] xl:right-[12%] w-[200px] xl:w-[230px] text-left flex flex-col items-start">
+                <h3 className="text-[17px] xl:text-[19px] font-bold mb-1 leading-none">
                   {features[3].title}
                 </h3>
                 <p className="text-gray-400 text-[13px] xl:text-[14px] leading-relaxed">
