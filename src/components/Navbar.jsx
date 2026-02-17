@@ -1,13 +1,28 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { QuberLogo } from "../assets/images";
 import RippleButton from "./ui/RippleButton";
 
 export default function Navbar() {
-  const [active, setActive] = useState("Features");
-  const [open, setOpen] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
+
+  const [active, setActive] = useState("Features");
+  const [open, setOpen] = useState(false);
+
+  // Update active menu item based on current route
+  useEffect(() => {
+    if (location.pathname === "/about-us") {
+      setActive("About");
+    } else if (
+      location.pathname === "/terms-of-service" ||
+      location.pathname === "/privacy-policy"
+    ) {
+      setActive(null); // No menu item active for terms/privacy
+    } else if (location.pathname === "/") {
+      setActive("Features"); // Default to Features on home page
+    }
+  }, [location.pathname]);
 
   const menu = [
     { name: "Features", id: "pricing", type: "scroll" },
