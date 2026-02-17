@@ -1,0 +1,52 @@
+@import "tailwindcss";
+
+body {
+  font-family: "Manrope", sans-serif;
+}
+@keyframes ripple {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+@keyframes slide-in-left {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slide-in-right {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.animate-slide-in-left {
+  animation: slide-in-left 1s ease-out forwards;
+}
+
+.animate-slide-in-right {
+  animation: slide-in-right 1s ease-out forwards;
+  animation-delay: 0.3s;
+  opacity: 0;
+}
+
+.animate-slide-in-left-continuous {
+  animation: slide-in-left 2s ease-in-out infinite;
+}
+
+.animate-slide-in-right-continuous {
+  animation: slide-in-right 2s ease-in-out infinite;
+  animation-delay: 0.5s;
+}
