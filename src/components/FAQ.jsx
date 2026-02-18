@@ -6,39 +6,66 @@ export default function FAQ() {
 
   const faqs = [
     {
+      question: "What is Quber Funded?",
+      answer:
+        "Quber Funded is a proprietary trading platform where traders can access funded trading accounts and earn profit by following strict risk management rules.",
+    },
+    {
+      question: "Is Quber Funded connected to any broker?",
+      answer:
+        "Yes. Quber Funded is a sister company of Quber Capital (Quberx). While both operate independently, trading accounts under Quber Funded are executed through Quberx brokerage infrastructure.",
+    },
+    {
+      question: "Do I need to complete a challenge?",
+      answer:
+        "Quber Funded offers instant funded account options. No long evaluation phases.",
+    },
+    {
+      question: "What markets can I trade?",
+      answer:
+        "You can trade Forex, Commodities, Indices & Crypto with 300+ instruments.",
+    },
+    {
+      question: "What are the Drawdown limits?",
+      answer:
+        "Maximum Daily Drawdown limit - 5%. Maximum Overall Drawdown limit - 10%. Breaking rules may result in account suspension.",
+    },
+    {
       question: "What is the profit split?",
-      answer:
-        "Quber Funded split is structured based on performance. Traders keep a significant percentage of generated profits, with higher scaling tiers unlocking improved payout ratios over time.",
+      answer: "Traders receive up to 70% of the profits.",
     },
     {
-      question: "Are there any hidden fees?",
+      question: "When can I withdraw profits?",
       answer:
-        "No hidden charges. The only upfront cost is your selected funded plan. There are no recurring platform fees or surprise deductions beyond standard trading complexities.",
+        "Minimum withdrawal should be 1% of total profits. All payouts are processed to the assigned account/wallet only.",
     },
     {
-      question: "Can I hold positions overnight and over weekends?",
+      question: "Is news trading allowed?",
       answer:
-        "Yes. Swing trading and holding positions overnight is permitted, provided all risk parameters and maximum drawdown limits are respected.",
+        "No, trading is not allowed 5 min before major news & 5 min after major news.",
     },
     {
-      question: "What happens if I breach the rules?",
+      question: "What happens if I break a rule?",
       answer:
-        "If your account violates the defined risk limits, it will be closed in line with our policy. You may reapply for a new funded account at any time. (Since you don't want heavy challenge for language, I softened it to rule breach.)",
+        "If any risk parameter is violated, the funded account will be terminated without refund.",
     },
     {
-      question: "What instruments can I trade?",
+      question: "Is Quber Funded legally compliant?",
       answer:
-        "Funded traders can access a wide range of instruments including Forex pairs, indices, commodities, and selected crypto markets, depending on the account tier.",
+        "Quber Funded operates under structured proprietary trading model. Traders must follow their local country regulations.",
     },
     {
-      question: "How do payouts work?",
+      question: "Can I hold trades overnight or over weekend?",
       answer:
-        "Profits can be withdrawn based on the payout schedule outlined in your funded plan. Once eligibility criteria are met, withdrawals are processed promptly.",
+        "Definitely Yes. You can hold trades overnight as well as weekend.",
     },
     {
-      question: "Is there a maximum position size?",
-      answer:
-        "Yes. Position sizing limits are defined to maintain structured risk management. Maximum lot exposure depends on your funded account size.",
+      question: "What payment methods are accepted?",
+      answer: "Crypto, Card, Bank Transfer, etc.",
+    },
+    {
+      question: "Is there any refund policy?",
+      answer: "All purchases are final. No refunds once account is activated.",
     },
   ];
 
