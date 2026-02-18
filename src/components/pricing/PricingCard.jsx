@@ -38,18 +38,28 @@ export default function PricingCard({
 
   // Helper function to render text with bold numbers and keywords
   const renderFeatureText = (text) => {
+    // Special handling for "Instant Payout , Weekly Thereafter."
+    if (text.includes("Instant Payout")) {
+      const parts = text.split(",");
+      return (
+        <>
+          <span className="font-bold">{parts[0]}</span>
+          {parts[1] && <span>{", " + parts[1].trim()}</span>}
+        </>
+      );
+    }
+
     // Split by spaces and process each word
     const parts = text.split(" ");
     return parts.map((part, index) => {
-      // Check if part contains numbers or is a keyword
+      // Check if part contains numbers or is "Unlimited"
       const hasNumber = /\d/.test(part);
-      const keywords = ["Instant", "Unlimited", "Weekly", "Thereafter"];
-      const isKeyword = keywords.some((keyword) => part.includes(keyword));
+      const isUnlimited = part.includes("Unlimited");
 
-      if (hasNumber || isKeyword) {
+      if (hasNumber || isUnlimited) {
         return (
           <span key={index}>
-            <strong>{part}</strong>
+            <span className="font-bold">{part}</span>
             {index < parts.length - 1 ? " " : ""}
           </span>
         );
