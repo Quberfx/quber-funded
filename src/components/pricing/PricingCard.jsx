@@ -36,6 +36,33 @@ export default function PricingCard({
     onSelect();
   };
 
+  // Helper function to render text with bold numbers and keywords
+  const renderFeatureText = (text) => {
+    // Split by spaces and process each word
+    const parts = text.split(" ");
+    return parts.map((part, index) => {
+      // Check if part contains numbers or is a keyword
+      const hasNumber = /\d/.test(part);
+      const keywords = ["Instant", "Unlimited", "Weekly", "Thereafter"];
+      const isKeyword = keywords.some((keyword) => part.includes(keyword));
+
+      if (hasNumber || isKeyword) {
+        return (
+          <span key={index}>
+            <strong>{part}</strong>
+            {index < parts.length - 1 ? " " : ""}
+          </span>
+        );
+      }
+      return (
+        <span key={index}>
+          {part}
+          {index < parts.length - 1 ? " " : ""}
+        </span>
+      );
+    });
+  };
+
   return (
     <div
       className={`
@@ -161,7 +188,9 @@ export default function PricingCard({
                     clipRule="evenodd"
                   />
                 </svg>
-                <span className="font-medium">{feature}</span>
+                <span className="font-medium">
+                  {renderFeatureText(feature)}
+                </span>
               </div>
             ))}
           </div>
