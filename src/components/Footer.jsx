@@ -65,8 +65,8 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Right Half - Links, Pages, Download App */}
-          <div className="grid grid-cols-3 gap-8">
+          {/* Right Half - Links, Pages */}
+          <div className="grid grid-cols-2 gap-8">
             {/* Links */}
             <div>
               <h3 className="font-bold mb-4">Links</h3>
@@ -117,6 +117,7 @@ export default function Footer() {
             </div>
 
             {/* Download App */}
+            {/* Temporarily commented out - App store links
             <div>
               <h3 className="font-bold mb-4">Download app</h3>
               <div className="space-y-2">
@@ -144,6 +145,7 @@ export default function Footer() {
                 </a>
               </div>
             </div>
+            */}
           </div>
         </div>
 
