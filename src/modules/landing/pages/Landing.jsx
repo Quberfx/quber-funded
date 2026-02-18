@@ -1,8 +1,7 @@
 import Hero from "../../../components/Hero";
-import ForexTicker from "../../../components/ForexTicker";
+import TradingViewTicker from "../../../components/TradingViewTicker";
 import PricingSection from "../../../components/pricing/PricingSection";
 import FundingPaths from "../../../components/FundingPaths";
-import CTASection from "../../../components/CTASection";
 import CapitalAllocation from "../../../components/CapitalAllocation";
 import PerformanceSteps from "../../../components/PerformanceSteps";
 import SupportSection from "../../../components/SupportSection";
@@ -16,10 +15,9 @@ export default function Landing() {
     <div className="w-full overflow-x-hidden">
       <WelcomePopup />
       <Hero />
-      <ForexTicker />
+      <TradingViewTicker />
       <PricingSection />
       <FundingPaths />
-      <CTASection />
       <CapitalAllocation />
       <PerformanceSteps />
       <SupportSection />

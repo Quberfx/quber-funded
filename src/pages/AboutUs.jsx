@@ -309,7 +309,7 @@ export default function AboutUs() {
           </div>
 
           {/* Why Choose Section */}
-          <div className="mb-16">
+          <div className="my-16">
             <h2
               className="text-[32px] md:text-[44px] lg:text-[56px] font-bold leading-[120%] tracking-[-0.04em] max-w-[684px] mx-auto text-center text-[#0a1628] mb-12"
               style={{ fontFamily: "Manrope, sans-serif" }}

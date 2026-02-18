@@ -326,6 +326,45 @@ export default function FundingPaths() {
               </div>
             ))}
           </div>
+
+          {/* CTA Section - Integrated */}
+          <div className="mt-50">
+            <ScrollReveal direction="up" delay={0} scale={true}>
+              <div
+                className="rounded-2xl p-8 md:p-12 relative z-10 overflow-hidden"
+                style={{
+                  background:
+                    "linear-gradient(265deg, #C3D7FF 0.77%, #1D60E5 44.34%, #0040C0 76.17%)",
+                  boxShadow: "0 12px 28px 0 rgba(10, 9, 9, 0.32)",
+                  backdropFilter: "blur(3px)",
+                }}
+              >
+                <div className="flex flex-col md:flex-row items-center justify-between gap-8">
+                  <div className="text-white max-w-2xl">
+                    <ScrollReveal direction="left" delay={100}>
+                      <h2 className="text-3xl md:text-4xl font-bold mb-4">
+                        Ready to Trade With Real Capital?
+                      </h2>
+                    </ScrollReveal>
+
+                    <ScrollReveal direction="left" delay={200}>
+                      <p className="text-blue-50 text-lg">
+                        Start with $1000, access a direct funded account, and
+                        trade firm capital with transparent rules and scalable
+                        payouts.
+                      </p>
+                    </ScrollReveal>
+                  </div>
+
+                  <ScrollReveal direction="right" delay={300} scale={true}>
+                    <button className="bg-white text-blue-600 hover:bg-gray-100 hover:scale-105 transition-all px-8 py-4 rounded-full font-semibold text-lg flex items-center gap-2 flex-shrink-0">
+                      Get Funded →
+                    </button>
+                  </ScrollReveal>
+                </div>
+              </div>
+            </ScrollReveal>
+          </div>
         </div>
       </section>
     </>

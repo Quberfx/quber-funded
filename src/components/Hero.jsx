@@ -85,8 +85,7 @@ export default function Hero() {
 
             <ScrollReveal direction="up" delay={300}>
               <p className="mt-6 text-gray-300 max-w-lg">
-                Enter with $1000 and trade firm capital under clear performance
-                guidelines. Scale up as you prove consistency.
+                All trades are executed through our Tier-1 liquidity partners no demo feeds, no simulated environment. Experience pure, real-market execution.
               </p>
             </ScrollReveal>
 

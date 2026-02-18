@@ -4,7 +4,7 @@ import ParallaxContainer from "./shared/ParallaxContainer";
 
 export default function CTASection() {
   return (
-    <section className="bg-[#06090f] py-16 relative overflow-hidden">
+    <section className="bg-[#06090f] py-16 md:py-20 relative overflow-hidden mt-8 md:mt-0">
       <div className="max-w-[88rem] mx-auto px-8 lg:px-12">
         {/* Background decorative elements with parallax */}
         <ParallaxContainer
@@ -30,15 +30,16 @@ export default function CTASection() {
 
         <ScrollReveal direction="up" delay={0} scale={true}>
           <div
-            className="rounded-3xl p-12 relative z-10"
+            className="rounded-2xl p-8 md:p-12 relative z-10 overflow-hidden"
             style={{
               background:
                 "linear-gradient(265deg, #C3D7FF 0.77%, #1D60E5 44.34%, #0040C0 76.17%)",
               boxShadow: "0 12px 28px 0 rgba(10, 9, 9, 0.32)",
+              backdropFilter: "blur(3px)",
             }}
           >
             <div className="flex flex-col md:flex-row items-center justify-between gap-8">
-              <ParallaxContainer speed={0.2} className="text-white max-w-2xl">
+              <div className="text-white max-w-2xl">
                 <ScrollReveal direction="left" delay={100}>
                   <h2 className="text-3xl md:text-4xl font-bold mb-4">
                     Ready to Trade With Real Capital?
@@ -51,15 +52,13 @@ export default function CTASection() {
                     firm capital with transparent rules and scalable payouts.
                   </p>
                 </ScrollReveal>
-              </ParallaxContainer>
+              </div>
 
-              <ParallaxContainer speed={0.15}>
-                <ScrollReveal direction="right" delay={300} scale={true}>
-                  <RippleButton className="bg-white text-blue-600 hover:bg-gray-100 hover:scale-105 transition-transform px-8 py-4 rounded-full font-semibold text-lg flex items-center gap-2">
-                    Get Funded →
-                  </RippleButton>
-                </ScrollReveal>
-              </ParallaxContainer>
+              <ScrollReveal direction="right" delay={300} scale={true}>
+                <RippleButton className="bg-white text-blue-600 hover:bg-gray-100 hover:scale-105 transition-transform px-8 py-4 rounded-full font-semibold text-lg flex items-center gap-2 flex-shrink-0">
+                  Get Funded →
+                </RippleButton>
+              </ScrollReveal>
             </div>
           </div>
         </ScrollReveal>

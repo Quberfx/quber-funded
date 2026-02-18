@@ -108,13 +108,16 @@ export default function PricingCard({
         {/* Inner Card Content */}
         <div
           className={`
-            relative rounded-3xl p-8 pt-10 transition-all duration-300
+            relative p-8 pt-10 transition-all duration-300
             ${
-              active
-                ? "bg-transparent"
-                : "bg-white hover:bg-[linear-gradient(180deg,#FCFBFA_40.35%,#D9E8FF_100%)] border-2 border-gray-200"
+              active || isHovered
+                ? "bg-[linear-gradient(180deg,#FCFBFA_40.35%,#D9E8FF_100%)] border border-[#1D60E5]"
+                : "bg-white border-2 border-gray-200"
             }
           `}
+          style={{
+            borderRadius: "30px",
+          }}
         >
           {/* PRICE */}
           <div className="text-center">
