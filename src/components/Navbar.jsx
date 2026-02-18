@@ -7,7 +7,7 @@ export default function Navbar() {
   const navigate = useNavigate();
   const location = useLocation();
 
-  const [active, setActive] = useState("Features");
+  const [active, setActive] = useState("");
   const [open, setOpen] = useState(false);
 
   // Update active menu item based on current route
@@ -20,7 +20,7 @@ export default function Navbar() {
     ) {
       setActive(null); // No menu item active for terms/privacy
     } else if (location.pathname === "/") {
-      setActive("Features"); // Default to Features on home page
+      setActive(""); // Default to Features on home page
     }
   }, [location.pathname]);
 
@@ -141,7 +141,7 @@ export default function Navbar() {
               </button>
             ))}
 
-            <hr className="my-2" />
+            {/* <hr className="my-2" /> */}
 
             <RippleButton className="bg-white text-blue-600 hover:bg-gray-100 border-2 border-blue-600 px-8 py-3 rounded-full font-semibold text-base justify-center transition-colors">
               Register

@@ -6,6 +6,7 @@ import {
 } from "../assets/images/index";
 import { MobileCryptoVideo } from "../assets/videos/index";
 import ScrollReveal from "./shared/ScrollReveal";
+import RippleButton from "./ui/RippleButton";
 
 export default function FundingPaths() {
   const features = [
@@ -357,9 +358,17 @@ export default function FundingPaths() {
                   </div>
 
                   <ScrollReveal direction="right" delay={300} scale={true}>
-                    <button className="bg-white text-blue-600 hover:bg-gray-100 hover:scale-105 transition-all px-8 py-4 rounded-full font-semibold text-lg flex items-center gap-2 flex-shrink-0">
-                      Get Funded →
-                    </button>
+                    <div className="rounded-full inline-block">
+                      <RippleButton
+                        style={{
+                          boxShadow: "0 0 16px 0 #6296FF",
+                          border: "2px solid #97BAFF",
+                        }}
+                        className="bg-white text-blue-600 hover:bg-gray-100 transition-all px-8 py-4 rounded-full font-semibold text-lg flex items-center gap-2 flex-shrink-0 border border-[#97BAFF]"
+                      >
+                        Get Funded →
+                      </RippleButton>
+                    </div>
                   </ScrollReveal>
                 </div>
               </div>

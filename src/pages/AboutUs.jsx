@@ -15,10 +15,10 @@ export default function AboutUs() {
   const [activeWordIndex, setActiveWordIndex] = useState(-1);
   const [statsAnimated, setStatsAnimated] = useState(false);
   const [statValues, setStatValues] = useState({
-    stat1: 0,
-    stat2: 0,
-    stat3: 0,
-    stat4: 0,
+    stat1: 9,
+    stat2: 9,
+    stat3: 1,
+    stat4: 100,
   });
 
   // Final values for stats

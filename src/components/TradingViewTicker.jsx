@@ -41,7 +41,7 @@ export default function TradingViewTicker() {
       ],
       showSymbolLogo: true,
       colorTheme: "dark",
-      isTransparent: false,
+      isTransparent: true,
       displayMode: "adaptive",
       locale: "en",
     });
@@ -57,8 +57,10 @@ export default function TradingViewTicker() {
   }, []);
 
   return (
-    <div className="tradingview-widget-container" ref={containerRef}>
-      {/* TradingView widget will be injected here */}
+    <div className="w-full" style={{ backgroundColor: "#000A1D" }}>
+      <div className="tradingview-widget-container" ref={containerRef}>
+        {/* TradingView widget will be injected here */}
+      </div>
     </div>
   );
 }

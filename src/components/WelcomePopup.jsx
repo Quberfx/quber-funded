@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 
 export default function WelcomePopup() {
   const [isOpen, setIsOpen] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
   const [copied, setCopied] = useState(false);
 
   useEffect(() => {
@@ -11,7 +12,9 @@ export default function WelcomePopup() {
     if (!hasSeenPopup) {
       // Show popup after 2 seconds on first visit
       const timer = setTimeout(() => {
-        setIsOpen(true);
+        setIsVisible(true);
+        // Trigger animation after mount
+        setTimeout(() => setIsOpen(true), 50);
       }, 2000);
 
       return () => clearTimeout(timer);
@@ -26,23 +29,41 @@ export default function WelcomePopup() {
 
   const handleClose = () => {
     setIsOpen(false);
-    // Mark popup as seen for this session
-    sessionStorage.setItem("hasSeenWelcomePopup", "true");
+    // Wait for animation to complete before unmounting
+    setTimeout(() => {
+      setIsVisible(false);
+      // Mark popup as seen for this session
+      sessionStorage.setItem("hasSeenWelcomePopup", "true");
+    }, 300);
   };
 
-  if (!isOpen) return null;
+  if (!isVisible) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm">
-      <div className="relative bg-gradient-to-r from-white to-blue-100 rounded-3xl shadow-2xl max-w-2xl w-full mx-4 p-12">
+    <div
+      className={`fixed inset-0 z-50 flex items-center justify-center transition-all duration-300 ${
+        isOpen
+          ? "bg-black/50 backdrop-blur-sm"
+          : "bg-black/0 backdrop-blur-none"
+      }`}
+      onClick={handleClose}
+    >
+      <div
+        className={`relative bg-gradient-to-r from-white to-blue-100 rounded-3xl shadow-2xl max-w-2xl w-full mx-4 p-12 transition-all duration-300 ease-out ${
+          isOpen
+            ? "opacity-100 scale-100 translate-y-0"
+            : "opacity-0 scale-95 -translate-y-4"
+        }`}
+        onClick={(e) => e.stopPropagation()}
+      >
         {/* Close button */}
         <button
           onClick={handleClose}
-          className="absolute top-6 right-6 text-gray-400 hover:text-gray-600 transition-colors"
+          className="absolute top-6 right-6 text-gray-400 hover:text-gray-600 transition-colors cursor pointer"
           aria-label="Close"
         >
           <svg
-            className="w-6 h-6"
+            className="w-6 h-6 cursor-pointer"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"

@@ -7,7 +7,6 @@ export default function RippleButton({
   ...props
 }) {
   const [ripples, setRipples] = useState([]);
-  const [isPressed, setIsPressed] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
 
   const handleClick = (e) => {
@@ -34,10 +33,7 @@ export default function RippleButton({
     if (onClick) onClick(e);
   };
 
-  const handleMouseDown = () => setIsPressed(true);
-  const handleMouseUp = () => setIsPressed(false);
   const handleMouseLeave = () => {
-    setIsPressed(false);
     setIsHovered(false);
   };
   const handleMouseEnter = () => setIsHovered(true);
@@ -56,18 +52,13 @@ export default function RippleButton({
           <>
             <span>{parts[0]}</span>
             <span
-              className={`inline-block transition-all duration-300 ease-out ${
-                isHovered
-                  ? "translate-x-1 scale-125"
-                  : "translate-x-0 scale-100"
+              className={`inline-block transition-transform duration-300 ease-out ${
+                isHovered ? "translate-x-1" : "translate-x-0"
               }`}
-              style={{
-                animation: isHovered ? "arrow-spin 0.6s ease-in-out" : "none",
-              }}
             >
               →
             </span>
-            <span>{parts[1]}</span>
+            {parts[1] && <span>{parts[1]}</span>}
           </>
         );
       }
@@ -78,22 +69,16 @@ export default function RippleButton({
   return (
     <button
       onClick={handleClick}
-      onMouseDown={handleMouseDown}
-      onMouseUp={handleMouseUp}
       onMouseLeave={handleMouseLeave}
       onMouseEnter={handleMouseEnter}
-      style={{
-        boxShadow: "0 0 16px 0 #6296FF",
-      }}
       className={`
         relative overflow-hidden
         transition-all duration-200 ease-out cursor-pointer
-        ${isPressed ? "scale-95 tracking-tight" : "scale-100 hover:scale-[1.02] hover:tracking-wide"}
         ${className}
       `}
       {...props}
     >
-      <span className="relative z-10 inline-flex items-center justify-center gap-2 transition-all duration-200 ease-out">
+      <span className="relative z-10 inline-flex items-center justify-center gap-2">
         {renderChildren()}
       </span>
 
@@ -122,15 +107,6 @@ export default function RippleButton({
           100% {
             transform: scale(1);
             opacity: 0;
-          }
-        }
-
-        @keyframes arrow-spin {
-          0% {
-            transform: rotate(0deg);
-          }
-          100% {
-            transform: rotate(360deg);
           }
         }
       `}</style>
