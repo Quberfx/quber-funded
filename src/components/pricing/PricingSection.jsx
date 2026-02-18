@@ -33,7 +33,7 @@ export default function PricingSection() {
       id: "beginners",
       title: "Beginners",
       price: "5,000",
-      fee: "169",
+      fee: "144",
       originalFee: "299",
       features: [
         "No challenge, No Consistency",
@@ -48,7 +48,7 @@ export default function PricingSection() {
       id: "classic",
       title: "Classic",
       price: "10,000",
-      fee: "329",
+      fee: "289",
       originalFee: "599",
       highlighted: true,
       features: [
@@ -64,8 +64,8 @@ export default function PricingSection() {
       id: "standard",
       title: "Standard",
       price: "25,000",
-      fee: "1499",
-      originalFee: "829",
+      fee: "739",
+      originalFee: "1499",
       features: [
         "No challenge, No Consistency",
         "10% Max drawdown",
@@ -79,7 +79,7 @@ export default function PricingSection() {
       id: "professional",
       title: "Professional*",
       price: "50,000",
-      fee: "1649",
+      fee: "1489",
       originalFee: "2999",
       features: [
         "No challenge, No Consistency",
