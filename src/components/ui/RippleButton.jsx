@@ -82,6 +82,9 @@ export default function RippleButton({
       onMouseUp={handleMouseUp}
       onMouseLeave={handleMouseLeave}
       onMouseEnter={handleMouseEnter}
+      style={{
+        boxShadow: "0 0 16px 0 #6296FF",
+      }}
       className={`
         relative overflow-hidden
         transition-all duration-200 ease-out cursor-pointer
