@@ -65,7 +65,7 @@ export default function PricingTable() {
     {
       label: "News Trading",
       type: "check",
-      subtext: "(Restrictions 5 + 5 min Major News )",
+      subtext: "Allow 5 min before and 5 min after ( Major News )",
     },
   ];
 
