@@ -9,6 +9,7 @@ import ScaleCTA from "../../../components/ScaleCTA";
 import ScrollingBanner from "../../../components/ScrollingBanner";
 import FAQ from "../../../components/FAQ";
 import WelcomePopup from "../../../components/WelcomePopup";
+import HeroBlueSection from "../../../components/HeroBlueSection";
 
 export default function Landing() {
   return (
@@ -16,6 +17,7 @@ export default function Landing() {
       <WelcomePopup />
       <Hero />
       <TradingViewTicker />
+      <HeroBlueSection />
       <PricingSection />
       <FundingPaths />
       <CapitalAllocation />

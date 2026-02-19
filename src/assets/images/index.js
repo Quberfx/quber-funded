@@ -25,6 +25,9 @@ import PrivacyPolicyHeaderBg from "./privacy-header.png";
 import TNCHeaderBg from "./tnc-header-bg.png";
 import AboutUsHeaderBg from "./about-us-header.png";
 import AboutUsIllustration from "./about-us-page-template.png";
+import NoChallenge from "./no-challenge.svg";
+import NoComplicatedRules from "./no-complicated-rules.svg";
+import OneDayPayouts from "./one-day-payouts.svg";
 
 export {
   QuberLogo,
@@ -54,4 +57,7 @@ export {
   TNCHeaderBg,
   AboutUsHeaderBg,
   AboutUsIllustration,
+  NoChallenge,
+  NoComplicatedRules,
+  OneDayPayouts,
 };

@@ -1,6 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import PricingCard from "./PricingCard";
-import { Cash, Circle, Hand } from "../../assets/images";
+import PricingTable from "./PricingTable";
 import ScrollReveal from "../shared/ScrollReveal";
 
 export default function PricingSection() {
@@ -22,77 +21,6 @@ export default function PricingSection() {
     handleScroll(); // Initial check
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-  const badges = [
-    { text: "No Complicated rules", icon: Circle },
-    { text: "No challenges", icon: Hand },
-    { text: "One day payouts", icon: Cash },
-  ];
-
-  const plans = [
-    {
-      id: "beginners",
-      title: "Beginners",
-      price: "5,000",
-      fee: "144",
-      originalFee: "299",
-      features: [
-        "No challenge, No Consistency",
-        "10% Max drawdown",
-        "5 % Daily drawdown",
-        "70% Profit Split",
-        "Instant Payout , Weekly Thereafter.",
-        "Unlimited Trading Period",
-      ],
-    },
-    {
-      id: "classic",
-      title: "Classic",
-      price: "10,000",
-      fee: "289",
-      originalFee: "599",
-      highlighted: true,
-      features: [
-        "No challenge, No Consistency",
-        "10% Max drawdown",
-        "5 % Daily drawdown",
-        "70% Profit Split",
-        "Instant Payout , Weekly Thereafter.",
-        "Unlimited Trading Period",
-      ],
-    },
-    {
-      id: "standard",
-      title: "Standard",
-      price: "25,000",
-      fee: "739",
-      originalFee: "1499",
-      features: [
-        "No challenge, No Consistency",
-        "10% Max drawdown",
-        "5 % Daily drawdown",
-        "70% Profit Split",
-        "Instant Payout , Weekly Thereafter.",
-        "Unlimited Trading Period",
-      ],
-    },
-    {
-      id: "professional",
-      title: "Professional*",
-      price: "50,000",
-      fee: "1489",
-      originalFee: "2999",
-      features: [
-        "No challenge, No Consistency",
-        "10% Max drawdown",
-        "5 % Daily drawdown",
-        "70% Profit Split",
-        "Instant Payout , Weekly Thereafter.",
-        "Unlimited Trading Period",
-      ],
-    },
-  ];
-
-  const [selectedPlan, setSelectedPlan] = useState(null);
 
   return (
     <section
@@ -101,7 +29,7 @@ export default function PricingSection() {
     >
       <div className="max-w-[88rem] mx-auto px-8 lg:px-12 text-center">
         {/* BADGES */}
-        <div className="flex flex-wrap justify-center gap-4 mb-12">
+        {/* <div className="flex flex-wrap justify-center gap-4 mb-12">
           {badges.map(({ text, icon }, i) => (
             <ScrollReveal key={i} direction="fade" delay={i * 100}>
               <div className="flex items-center gap-3 px-6 py-3 rounded-2xl bg-white shadow-sm text-blue-600 font-medium">
@@ -110,7 +38,7 @@ export default function PricingSection() {
               </div>
             </ScrollReveal>
           ))}
-        </div>
+        </div> */}
 
         {/* HEADING */}
         <ScrollReveal direction="up" delay={300}>
@@ -129,18 +57,12 @@ export default function PricingSection() {
           </p>
         </ScrollReveal>
 
-        {/* CARDS */}
-        <div className="mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4 gap-8">
-          {plans.map((p, index) => (
-            <ScrollReveal key={p.id} direction="up" delay={500 + index * 100}>
-              <PricingCard
-                {...p}
-                selected={selectedPlan === p.id}
-                onSelect={() => setSelectedPlan(p.id)}
-              />
-            </ScrollReveal>
-          ))}
-        </div>
+        {/* PRICING TABLE */}
+        <ScrollReveal direction="up" delay={500}>
+          <div className="mt-16">
+            <PricingTable />
+          </div>
+        </ScrollReveal>
 
         {/* BECOME A PARTNER */}
         <ScrollReveal direction="up" delay={900}>
