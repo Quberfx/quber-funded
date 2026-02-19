@@ -72,6 +72,20 @@ export default function PricingTable() {
   return (
     <div className="w-full">
       <div className="bg-white rounded-3xl border-2 border-blue-400 p-4 md:p-8 overflow-x-auto">
+        <style>{`
+          @media (max-width: 768px) {
+            .sticky-column::before {
+              content: '';
+              position: absolute;
+              left: -20px;
+              top: 0;
+              bottom: 0;
+              width: 20px;
+              background: white;
+              z-index: 1;
+            }
+          }
+        `}</style>
         <table
           className="w-full border-collapse min-w-[650px]"
           style={{ tableLayout: "fixed" }}
@@ -98,10 +112,9 @@ export default function PricingTable() {
                       row.type === "header" || row.type === "fees"
                         ? "text-sm md:text-2xl"
                         : "text-xs md:text-base"
-                    } sticky left-0 bg-white z-10 md:static`}
+                    } sticky left-0 bg-white z-10 md:static sticky-column relative`}
                     style={{
                       boxShadow: "2px 0 4px rgba(0,0,0,0.05)",
-                      clipPath: "inset(0 -10px 0 0)",
                     }}
                   >
                     {row.label}
