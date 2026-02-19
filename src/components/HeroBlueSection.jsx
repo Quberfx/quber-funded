@@ -32,7 +32,7 @@ export default function HeroBlueSection() {
         style={{
           background:
             "linear-gradient(88.24deg, #000000 -25.06%, #2A71FF 68.42%, #0080FF 107.42%)",
-          boxShadow: "0 12px 28px 0 rgba(10, 9, 9, 0.32)",
+        //   boxShadow: "0 12px 28px 0 rgba(10, 9, 9, 0.32)",
         }}
       >
         <div className="grid md:grid-cols-3 gap-12 max-w-7xl mx-auto px-8 lg:px-12">
