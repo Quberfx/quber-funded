@@ -71,91 +71,94 @@ export default function PricingTable() {
 
   return (
     <div className="w-full">
-      <div className="bg-white rounded-3xl border-2 border-blue-400 p-8 overflow-x-auto">
+      <div className="bg-white rounded-3xl border-2 border-blue-400 p-4 md:p-8 overflow-x-auto">
         <table
-          className="w-full border-collapse"
+          className="w-full border-collapse min-w-[650px]"
           style={{ tableLayout: "fixed" }}
         >
           <colgroup>
-            <col style={{ width: "25%" }} />
-            <col style={{ width: "18.75%" }} />
-            <col style={{ width: "18.75%" }} />
-            <col style={{ width: "18.75%" }} />
-            <col style={{ width: "18.75%" }} />
+            <col className="w-[28%] md:w-[25%]" />
+            <col className="w-[18%] md:w-[18.75%]" />
+            <col className="w-[18%] md:w-[18.75%]" />
+            <col className="w-[18%] md:w-[18.75%]" />
+            <col className="w-[18%] md:w-[18.75%]" />
           </colgroup>
           <tbody>
             {rows.map((row, rowIndex) => {
-              // No border for "Accounts" (index 0) and "Fees" (index 1)
               const shouldShowBorder =
                 rowIndex > 1 && rowIndex !== rows.length - 1;
 
               return (
                 <tr
                   key={rowIndex}
-                  className={`${
-                    shouldShowBorder ? "border-b border-gray-200" : ""
-                  }`}
+                  className={shouldShowBorder ? "border-b border-gray-200" : ""}
                 >
-                  {/* Row Label */}
                   <td
-                    className={`py-6 px-4 text-left font-semibold text-gray-900 ${row.type === "header" || row.type === "fees" ? "text-2xl" : ""}`}
+                    className={`py-3 md:py-6 pl-1 pr-2 md:px-4 text-left font-semibold text-gray-900 ${
+                      row.type === "header" || row.type === "fees"
+                        ? "text-sm md:text-2xl"
+                        : "text-xs md:text-base"
+                    } sticky left-0 bg-white z-10 md:static`}
+                    style={{
+                      boxShadow: "2px 0 4px rgba(0,0,0,0.05)",
+                      clipPath: "inset(0 -10px 0 0)",
+                    }}
                   >
                     {row.label}
                     {row.subtext && (
-                      <div className="text-xs text-gray-400 font-normal mt-1">
+                      <div className="text-[9px] md:text-xs text-gray-400 font-normal mt-0.5 md:mt-1">
                         {row.subtext}
                       </div>
                     )}
                   </td>
 
-                  {/* Plan Columns */}
                   {plans.map((plan, planIndex) => (
                     <td
                       key={planIndex}
-                      className="py-6 px-4 text-center align-middle"
+                      className="py-3 md:py-6 px-1.5 md:px-4 text-center align-middle"
                     >
                       {row.type === "header" && (
-                        <div className="flex flex-col items-center gap-3">
-                          <div className="text-4xl font-bold text-gray-900">
+                        <div className="flex flex-col items-center gap-1.5 md:gap-3">
+                          <div className="text-xl md:text-4xl font-bold text-gray-900">
                             {plan.account}
                           </div>
-                          <button className="bg-[#1D60E5] text-white px-6 py-2 rounded-full hover:bg-blue-700 transition-colors font-medium text-sm">
+                          <button className="bg-[#1D60E5] text-white px-3 md:px-6 py-1 md:py-2 rounded-full hover:bg-blue-700 transition-colors font-medium text-[10px] md:text-sm whitespace-nowrap">
                             Get Plan
                           </button>
                         </div>
                       )}
 
                       {row.type === "fees" && (
-                        <div className="flex flex-col items-center gap-1">
-                          <div className="text-lg font-bold text-gray-900">
+                        <div className="flex flex-col items-center gap-0.5 md:gap-1">
+                          <div className="text-sm md:text-lg font-bold text-gray-900">
                             {plan.fee}
                           </div>
-                          <div className="text-xs text-[#EB0000] line-through bg-[#FFD4D4] px-3 py-1 rounded-full">
-                            Fee: {plan.originalFee}
+                          <div className="text-[9px] md:text-xs text-[#EB0000] line-through bg-[#FFD4D4] px-1.5 md:px-3 py-0.5 md:py-1 rounded-full whitespace-nowrap">
+                            {plan.originalFee}
                           </div>
                         </div>
                       )}
 
                       {row.type === "maxLoss" && (
-                        <div className="text-sm text-gray-700 font-bold">
+                        <div className="text-[10px] md:text-sm text-gray-700 font-bold">
                           {plan.maxLoss}
                         </div>
                       )}
 
                       {row.type === "dailyLoss" && (
-                        <div className="text-sm text-gray-700 font-bold">
+                        <div className="text-[10px] md:text-sm text-gray-700 font-bold">
                           {plan.dailyLoss}
                         </div>
                       )}
 
                       {row.type === "minDays" && (
-                        <div className="text-sm text-gray-700 font-bold">
+                        <div className="text-[10px] md:text-sm text-gray-700 font-bold">
                           {plan.minDays}
                         </div>
                       )}
 
                       {row.type === "payout" && (
-                        <div className="text-sm text-gray-700 font-bold">
+                        <div className="text-[10px] md:text-sm text-gray-700 font-bold leading-tight">
                           {plan.payout}
                         </div>
                       )}
@@ -163,7 +166,7 @@ export default function PricingTable() {
                       {row.type === "check" && (
                         <div className="flex justify-center">
                           <svg
-                            className="w-6 h-6 text-blue-500"
+                            className="w-4 h-4 md:w-6 md:h-6 text-blue-500"
                             fill="none"
                             stroke="currentColor"
                             viewBox="0 0 24 24"
@@ -179,13 +182,13 @@ export default function PricingTable() {
                       )}
 
                       {row.type === "profitShare" && (
-                        <div className="text-sm text-gray-700 font-bold">
+                        <div className="text-[10px] md:text-sm text-gray-700 font-bold">
                           {plan.profitShare}
                         </div>
                       )}
 
                       {row.type === "minWithdrawal" && (
-                        <div className="text-sm text-gray-700 font-bold">
+                        <div className="text-[10px] md:text-sm text-gray-700 font-bold">
                           {plan.minWithdrawal}
                         </div>
                       )}
@@ -193,7 +196,7 @@ export default function PricingTable() {
                       {row.type === "cross" && (
                         <div className="flex justify-center">
                           <svg
-                            className="w-6 h-6 text-blue-500"
+                            className="w-4 h-4 md:w-6 md:h-6 text-blue-500"
                             fill="none"
                             stroke="currentColor"
                             viewBox="0 0 24 24"
@@ -209,7 +212,7 @@ export default function PricingTable() {
                       )}
 
                       {row.type === "profitLimit" && (
-                        <div className="text-sm text-gray-700 font-bold">
+                        <div className="text-[10px] md:text-sm text-gray-700 font-bold">
                           {plan.profitLimit}
                         </div>
                       )}
