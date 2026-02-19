@@ -7,7 +7,7 @@ export default function Hero() {
   const [phraseIndex, setPhraseIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
 
-  const words = ["Performance.", "Profit.", "Strategy."];
+  const words = ["Capital.", "Liquidity.", "Payouts."];
 
   useEffect(() => {
     const currentWord = words[phraseIndex];
@@ -64,7 +64,7 @@ export default function Hero() {
             <ScrollReveal direction="up" delay={200}>
               <h1 className="text-4xl md:text-[44px] lg:text-[64px] font-semibold leading-[1.05]">
                 Capital Without <br />
-                Competition. Just <br />
+                Challenge. Just <br />
                 <span
                   className="text-blue-500"
                   style={{ letterSpacing: "0.05em" }}
