@@ -85,7 +85,9 @@ export default function Hero() {
 
             <ScrollReveal direction="up" delay={300}>
               <p className="mt-6 text-gray-300 max-w-lg">
-                All trades are executed through our Tier-1 liquidity partners no demo feeds, no simulated environment. Experience pure, real-market execution.
+                We operate in real market conditions with authentic liquidity
+                execution. No simulations. No virtual feeds. Just pure, live
+                market performance
               </p>
             </ScrollReveal>
 
