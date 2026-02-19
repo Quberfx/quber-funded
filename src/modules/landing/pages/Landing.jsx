@@ -14,7 +14,7 @@ import HeroBlueSection from "../../../components/HeroBlueSection";
 export default function Landing() {
   return (
     <div className="w-full overflow-x-hidden">
-      <WelcomePopup />
+      {/* <WelcomePopup /> */}
       <Hero />
       <TradingViewTicker />
       <HeroBlueSection />
