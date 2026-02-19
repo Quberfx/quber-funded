@@ -114,7 +114,7 @@ export default function PricingTable() {
                         : "text-xs md:text-base"
                     } sticky left-0 bg-white z-10 md:static sticky-column relative`}
                     style={{
-                      boxShadow: "2px 0 4px rgba(0,0,0,0.05)",
+                      // boxShadow: "2px 0 4px rgba(0,0,0,0.05)",
                     }}
                   >
                     {row.label}

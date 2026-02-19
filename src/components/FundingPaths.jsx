@@ -350,7 +350,7 @@ export default function FundingPaths() {
 
                     <ScrollReveal direction="left" delay={200}>
                       <p className="text-blue-50 text-lg">
-                        Start with $1000, access a direct funded account, and
+                        Start with $5000, access a direct funded account, and
                         trade firm capital with transparent rules and scalable
                         payouts.
                       </p>
