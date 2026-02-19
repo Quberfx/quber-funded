@@ -10,11 +10,11 @@ export default function FAQ() {
       answer:
         "Quber Funded is a proprietary trading platform where traders can access funded trading accounts and earn profit by following strict risk management rules.",
     },
-    {
-      question: "Is Quber Funded connected to any broker?",
-      answer:
-        "Yes. Quber Funded is a sister company of Quber Capital (Quberx). While both operate independently, trading accounts under Quber Funded are executed through Quberx brokerage infrastructure.",
-    },
+    // {
+    //   question: "Is Quber Funded connected to any broker?",
+    //   answer:
+    //     "Yes. Quber Funded is a sister company of Quber Capital (Quberx). While both operate independently, trading accounts under Quber Funded are executed through Quberx brokerage infrastructure.",
+    // },
     {
       question: "Do I need to complete a challenge?",
       answer:

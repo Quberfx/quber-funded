@@ -187,8 +187,8 @@ export default function AboutUs() {
                     className="text-[18px] md:text-[24px] lg:text-[32px] font-normal leading-[140%] tracking-[0%]"
                     style={{ fontFamily: "Manrope, sans-serif" }}
                   >
-                    Trade With Our Dedicated{" "}
-                    <span className="font-bold">Tier-1</span> Liquidity Partner
+                    No Simulated Trading. Only{" "}
+                    <span className="font-bold">Real Market</span> Execution.
                   </p>
                 </div>
               </div>
