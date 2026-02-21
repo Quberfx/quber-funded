@@ -250,61 +250,109 @@ export default function AboutUs() {
           </p>
 
           {/* Stats Section */}
-          <div
-            ref={statsRef}
-            className="flex flex-col md:flex-row items-center justify-between py-12"
-          >
-            <div className="text-center flex-1">
-              <p className="text-4xl md:text-5xl font-bold text-blue-600 mb-2">
-                {statValues.stat1}%
-              </p>
-              <p className="text-gray-600 text-sm leading-tight">
-                Trader Payout
-                <br />
-                Satisfaction Rate
-              </p>
+          {/* Stats Section */}
+          <div ref={statsRef} className="py-8 md:py-12">
+            {/* Mobile: vertical stacked rows | Desktop: horizontal row */}
+
+            {/* Desktop layout (unchanged) */}
+            <div className="hidden md:flex flex-row items-center justify-between py-4">
+              <div className="text-center flex-1">
+                <p className="text-4xl md:text-5xl font-bold text-blue-600 mb-2">
+                  {statValues.stat1}%
+                </p>
+                <p className="text-gray-600 text-sm leading-tight">
+                  Trader Payout
+                  <br />
+                  Satisfaction Rate
+                </p>
+              </div>
+              <div className="w-[1px] h-24 bg-[#B8B8B8]" />
+              <div className="text-center flex-1">
+                <p className="text-4xl md:text-5xl font-bold text-blue-600 mb-2">
+                  {statValues.stat2}+
+                </p>
+                <p className="text-gray-600 text-sm leading-tight">
+                  Years of Combined
+                  <br />
+                  Market Experience
+                </p>
+              </div>
+              <div className="w-[1px] h-24 bg-[#B8B8B8]" />
+              <div className="text-center flex-1">
+                <p className="text-4xl md:text-5xl font-bold text-blue-600 mb-2">
+                  ${statValues.stat3}M+
+                </p>
+                <p className="text-gray-600 text-sm leading-tight">
+                  Capital Allocated
+                  <br />
+                  to Traders
+                </p>
+              </div>
+              <div className="w-[1px] h-24 bg-[#B8B8B8]" />
+              <div className="text-center flex-1">
+                <p className="text-4xl md:text-5xl font-bold text-blue-600 mb-2">
+                  {statValues.stat4}+
+                </p>
+                <p className="text-gray-600 text-sm leading-tight">
+                  Global Trading
+                  <br />
+                  Accounts Created
+                </p>
+              </div>
             </div>
 
-            {/* Vertical separator */}
-            <div className="hidden md:block w-[1px] h-24 bg-[#B8B8B8]" />
+            {/* Mobile layout: number left, label right, horizontal dividers */}
+            <div className="flex md:hidden flex-col">
+              {/* Row 1 */}
+              <div className="flex flex-row items-center py-5 px-2">
+                <p className="text-6xl font-bold text-blue-600 w-44 flex-shrink-0">
+                  {statValues.stat1}%
+                </p>
+                <p className="text-gray-700 text-sm leading-snug font-medium">
+                  Trader Payout
+                  <br />
+                  Satisfaction Rate
+                </p>
+              </div>
+              <div className="h-[1px] bg-gray-200 mx-2" />
 
-            <div className="text-center flex-1">
-              <p className="text-4xl md:text-5xl font-bold text-blue-600 mb-2">
-                {statValues.stat2}+
-              </p>
-              <p className="text-gray-600 text-sm leading-tight">
-                Years of Combined
-                <br />
-                Market Experience
-              </p>
-            </div>
+              {/* Row 2 */}
+              <div className="flex flex-row items-center py-5 px-2">
+                <p className="text-6xl font-bold text-blue-600 w-44 flex-shrink-0">
+                  {statValues.stat2}+
+                </p>
+                <p className="text-gray-700 text-sm leading-snug font-medium">
+                  Years of Combined
+                  <br />
+                  Market Experience
+                </p>
+              </div>
+              <div className="h-[1px] bg-gray-200 mx-2" />
 
-            {/* Vertical separator */}
-            <div className="hidden md:block w-[1px] h-24 bg-[#B8B8B8]" />
+              {/* Row 3 */}
+              <div className="flex flex-row items-center py-5 px-2">
+                <p className="text-6xl font-bold text-blue-600 w-44 flex-shrink-0">
+                  {statValues.stat3}M+
+                </p>
+                <p className="text-gray-700 text-sm leading-snug font-medium">
+                  Capital Allocated
+                  <br />
+                  to Traders
+                </p>
+              </div>
+              <div className="h-[1px] bg-gray-200 mx-2" />
 
-            <div className="text-center flex-1">
-              <p className="text-4xl md:text-5xl font-bold text-blue-600 mb-2">
-                ${statValues.stat3}M+
-              </p>
-              <p className="text-gray-600 text-sm leading-tight">
-                Capital Allocated
-                <br />
-                to Traders
-              </p>
-            </div>
-
-            {/* Vertical separator */}
-            <div className="hidden md:block w-[1px] h-24 bg-[#B8B8B8]" />
-
-            <div className="text-center flex-1">
-              <p className="text-4xl md:text-5xl font-bold text-blue-600 mb-2">
-                {statValues.stat4}+
-              </p>
-              <p className="text-gray-600 text-sm leading-tight">
-                Global Trading
-                <br />
-                Accounts Created
-              </p>
+              {/* Row 4 */}
+              <div className="flex flex-row items-center py-5 px-2">
+                <p className="text-6xl font-bold text-blue-600 w-44 flex-shrink-0">
+                  {statValues.stat4}+
+                </p>
+                <p className="text-gray-700 text-sm leading-snug font-medium">
+                  Global Trading
+                  <br />
+                  Accounts Created
+                </p>
+              </div>
             </div>
           </div>
 

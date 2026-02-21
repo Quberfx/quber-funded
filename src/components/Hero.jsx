@@ -42,7 +42,7 @@ export default function Hero() {
     <section
       className="relative bg-[#06090f] text-white overflow-hidden
         bg-none
-        md:bg-[url('/src/assets/images/desktop_monitor.svg')]
+        md:bg-[url('/src/assets/images/Desktop_Quber_funded.jpg.jpeg')]
         md:bg-cover
         md:bg-center
         md:bg-no-repeat"

@@ -1,5 +1,6 @@
 import QuberLogo from "./quber_logo.svg";
 import DesktopMonitor from "./desktop_monitor.png";
+import DesktopMonitorHighQlty from "./Desktop_Quber_funded.jpg.jpeg";
 import Cash from "./cash.svg";
 import Circle from "./circle.svg";
 import Hand from "./hand.svg";
@@ -32,6 +33,7 @@ import OneDayPayouts from "./one-day-payouts.svg";
 export {
   QuberLogo,
   DesktopMonitor,
+  DesktopMonitorHighQlty,
   Cash,
   Circle,
   Hand,
