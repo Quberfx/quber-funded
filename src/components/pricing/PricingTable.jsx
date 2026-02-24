@@ -69,159 +69,305 @@ export default function PricingTable() {
     },
   ];
 
+  // On mobile: 120px label + 120px per plan col = 600px total
+  // A ~390px screen shows: 120px label + ~2 full plan cols (240px) = 360px, rest scrolls
+  const LABEL_W = 120;
+  const PLAN_W = 120;
+
   return (
     <div className="w-full">
-      <div className="bg-white rounded-3xl border-2 border-blue-400 p-4 md:p-8 overflow-x-auto">
-        <table
-          className="w-full border-collapse"
-          style={{ tableLayout: "fixed" }}
-        >
-          <colgroup>
-            {/* Mobile: ~26% for label, ~18.5% each for 4 plan cols = 100% */}
-            {/* Desktop: 25% for label, 18.75% each for 4 plan cols = 100% */}
-            <col style={{ width: "26%" }} />
-            <col style={{ width: "18.5%" }} />
-            <col style={{ width: "18.5%" }} />
-            <col style={{ width: "18.5%" }} />
-            <col style={{ width: "18.5%" }} />
-          </colgroup>
-          <tbody>
-            {rows.map((row, rowIndex) => {
-              const shouldShowBorder =
-                rowIndex > 1 && rowIndex !== rows.length - 1;
+      <div className="bg-white rounded-3xl border-2 border-blue-400 p-4 md:p-8">
+        {/* 
+          KEY: overflow-x:auto must be on a direct wrapper of the table,
+          NOT on an ancestor that clips the sticky positioning context.
+        */}
+        <div style={{ overflowX: "auto" }}>
+          <table
+            style={{
+              borderCollapse: "collapse",
+              tableLayout: "fixed",
+              width: "100%",
+              minWidth: `${LABEL_W + PLAN_W * plans.length}px`,
+            }}
+          >
+            <colgroup>
+              <col style={{ width: LABEL_W }} />
+              {plans.map((_, i) => (
+                <col key={i} style={{ width: PLAN_W }} />
+              ))}
+            </colgroup>
+            <tbody>
+              {rows.map((row, rowIndex) => {
+                const shouldShowBorder =
+                  rowIndex > 1 && rowIndex !== rows.length - 1;
 
-              return (
-                <tr
-                  key={rowIndex}
-                  className={shouldShowBorder ? "border-b border-gray-200" : ""}
-                >
-                  {/* Sticky label column — narrower on mobile */}
-                  <td
-                    className={`py-3 md:py-6 pl-1 pr-1 md:px-4 text-left font-semibold text-gray-900 sticky left-0 bg-white z-10 relative ${
-                      row.type === "header" || row.type === "fees"
-                        ? "text-xs md:text-2xl"
-                        : "text-[9px] md:text-base"
-                    }`}
+                return (
+                  <tr
+                    key={rowIndex}
+                    style={
+                      shouldShowBorder
+                        ? { borderBottom: "1px solid #e5e7eb" }
+                        : {}
+                    }
                   >
-                    {row.label}
-                    {row.subtext && (
-                      <div className="text-[7px] md:text-xs text-gray-400 font-normal mt-0.5 md:mt-1 leading-tight">
-                        {row.subtext}
-                      </div>
-                    )}
-                  </td>
-
-                  {plans.map((plan, planIndex) => (
+                    {/* ── Sticky label cell ── */}
                     <td
-                      key={planIndex}
-                      className="py-3 md:py-6 px-0.5 md:px-4 text-center align-middle"
+                      style={{
+                        position: "sticky",
+                        left: 0,
+                        // Solid white background is the ONLY reliable way to mask content scrolling behind
+                        backgroundColor: "#ffffff",
+                        zIndex: 20,
+                        // White box-shadow bleeds a few extra px to cover any sub-pixel gaps
+                        boxShadow: "8px 0 0 0 #ffffff",
+                        width: LABEL_W,
+                        padding: "12px 10px 12px 4px",
+                        textAlign: "left",
+                        fontWeight: 600,
+                        color: "#111827",
+                        fontSize:
+                          row.type === "header" || row.type === "fees"
+                            ? "14px"
+                            : "11px",
+                        verticalAlign: "middle",
+                        // Clip content that might overflow this cell itself
+                        overflow: "hidden",
+                      }}
                     >
-                      {row.type === "header" && (
-                        <div className="flex flex-col items-center gap-1 md:gap-3">
-                          <div className="text-base md:text-4xl font-bold text-gray-900">
-                            {plan.account}
-                          </div>
-                          <button className="bg-[#1D60E5] text-white px-2 md:px-6 py-0.5 md:py-2 rounded-full hover:bg-blue-700 transition-colors font-medium text-[8px] md:text-sm whitespace-nowrap">
-                            Get Plan
-                          </button>
-                        </div>
-                      )}
-
-                      {row.type === "fees" && (
-                        <div className="flex flex-col items-center gap-0.5 md:gap-1">
-                          <div className="text-xs md:text-lg font-bold text-gray-900">
-                            {plan.fee}
-                          </div>
-                          <div className="text-[7px] md:text-xs text-[#EB0000] line-through bg-[#FFD4D4] px-1 md:px-3 py-0.5 md:py-1 rounded-full whitespace-nowrap">
-                            {plan.originalFee}
-                          </div>
-                        </div>
-                      )}
-
-                      {row.type === "maxLoss" && (
-                        <div className="text-[8px] md:text-sm text-gray-700 font-bold leading-tight">
-                          {plan.maxLoss}
-                        </div>
-                      )}
-
-                      {row.type === "dailyLoss" && (
-                        <div className="text-[8px] md:text-sm text-gray-700 font-bold leading-tight">
-                          {plan.dailyLoss}
-                        </div>
-                      )}
-
-                      {row.type === "minDays" && (
-                        <div className="text-[8px] md:text-sm text-gray-700 font-bold">
-                          {plan.minDays}
-                        </div>
-                      )}
-
-                      {row.type === "payout" && (
-                        <div className="text-[8px] md:text-sm text-gray-700 font-bold leading-tight">
-                          {plan.payout}
-                        </div>
-                      )}
-
-                      {row.type === "check" && (
-                        <div className="flex justify-center">
-                          <svg
-                            className="w-3 h-3 md:w-6 md:h-6 text-blue-500"
-                            fill="none"
-                            stroke="currentColor"
-                            viewBox="0 0 24 24"
-                          >
-                            <path
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              strokeWidth={2}
-                              d="M5 13l4 4L19 7"
-                            />
-                          </svg>
-                        </div>
-                      )}
-
-                      {row.type === "profitShare" && (
-                        <div className="text-[8px] md:text-sm text-gray-700 font-bold">
-                          {plan.profitShare}
-                        </div>
-                      )}
-
-                      {row.type === "minWithdrawal" && (
-                        <div className="text-[8px] md:text-sm text-gray-700 font-bold">
-                          {plan.minWithdrawal}
-                        </div>
-                      )}
-
-                      {row.type === "cross" && (
-                        <div className="flex justify-center">
-                          <svg
-                            className="w-3 h-3 md:w-6 md:h-6 text-blue-500"
-                            fill="none"
-                            stroke="currentColor"
-                            viewBox="0 0 24 24"
-                          >
-                            <path
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              strokeWidth={2}
-                              d="M6 18L18 6M6 6l12 12"
-                            />
-                          </svg>
-                        </div>
-                      )}
-
-                      {row.type === "profitLimit" && (
-                        <div className="text-[8px] md:text-sm text-gray-700 font-bold">
-                          {plan.profitLimit}
+                      {row.label}
+                      {row.subtext && (
+                        <div
+                          style={{
+                            fontSize: "9px",
+                            color: "#9ca3af",
+                            fontWeight: 400,
+                            marginTop: 2,
+                            lineHeight: 1.3,
+                          }}
+                        >
+                          {row.subtext}
                         </div>
                       )}
                     </td>
-                  ))}
-                </tr>
-              );
-            })}
-          </tbody>
-        </table>
+
+                    {/* ── Plan data cells ── */}
+                    {plans.map((plan, planIndex) => (
+                      <td
+                        key={planIndex}
+                        style={{
+                          padding: "12px 6px",
+                          textAlign: "center",
+                          verticalAlign: "middle",
+                          backgroundColor: "#ffffff",
+                        }}
+                      >
+                        {row.type === "header" && (
+                          <div
+                            style={{
+                              display: "flex",
+                              flexDirection: "column",
+                              alignItems: "center",
+                              gap: 8,
+                            }}
+                          >
+                            <div
+                              style={{
+                                fontSize: 22,
+                                fontWeight: 700,
+                                color: "#111827",
+                              }}
+                            >
+                              {plan.account}
+                            </div>
+                            <button
+                              style={{
+                                background: "#1D60E5",
+                                color: "white",
+                                padding: "4px 12px",
+                                borderRadius: 999,
+                                border: "none",
+                                cursor: "pointer",
+                                fontWeight: 500,
+                                fontSize: 10,
+                                whiteSpace: "nowrap",
+                              }}
+                            >
+                              Get Plan
+                            </button>
+                          </div>
+                        )}
+
+                        {row.type === "fees" && (
+                          <div
+                            style={{
+                              display: "flex",
+                              flexDirection: "column",
+                              alignItems: "center",
+                              gap: 4,
+                            }}
+                          >
+                            <div
+                              style={{
+                                fontSize: 14,
+                                fontWeight: 700,
+                                color: "#111827",
+                              }}
+                            >
+                              {plan.fee}
+                            </div>
+                            <div
+                              style={{
+                                fontSize: 9,
+                                color: "#EB0000",
+                                textDecoration: "line-through",
+                                background: "#FFD4D4",
+                                padding: "2px 8px",
+                                borderRadius: 999,
+                                whiteSpace: "nowrap",
+                              }}
+                            >
+                              {plan.originalFee}
+                            </div>
+                          </div>
+                        )}
+
+                        {row.type === "maxLoss" && (
+                          <span
+                            style={{
+                              fontSize: 11,
+                              fontWeight: 700,
+                              color: "#374151",
+                            }}
+                          >
+                            {plan.maxLoss}
+                          </span>
+                        )}
+
+                        {row.type === "dailyLoss" && (
+                          <span
+                            style={{
+                              fontSize: 11,
+                              fontWeight: 700,
+                              color: "#374151",
+                            }}
+                          >
+                            {plan.dailyLoss}
+                          </span>
+                        )}
+
+                        {row.type === "minDays" && (
+                          <span
+                            style={{
+                              fontSize: 11,
+                              fontWeight: 700,
+                              color: "#374151",
+                            }}
+                          >
+                            {plan.minDays}
+                          </span>
+                        )}
+
+                        {row.type === "payout" && (
+                          <span
+                            style={{
+                              fontSize: 10,
+                              fontWeight: 700,
+                              color: "#374151",
+                              lineHeight: 1.3,
+                              display: "block",
+                            }}
+                          >
+                            {plan.payout}
+                          </span>
+                        )}
+
+                        {row.type === "check" && (
+                          <div
+                            style={{
+                              display: "flex",
+                              justifyContent: "center",
+                            }}
+                          >
+                            <svg
+                              width="18"
+                              height="18"
+                              fill="none"
+                              stroke="#3b82f6"
+                              strokeWidth="2.5"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              viewBox="0 0 24 24"
+                            >
+                              <path d="M5 13l4 4L19 7" />
+                            </svg>
+                          </div>
+                        )}
+
+                        {row.type === "profitShare" && (
+                          <span
+                            style={{
+                              fontSize: 11,
+                              fontWeight: 700,
+                              color: "#374151",
+                            }}
+                          >
+                            {plan.profitShare}
+                          </span>
+                        )}
+
+                        {row.type === "minWithdrawal" && (
+                          <span
+                            style={{
+                              fontSize: 11,
+                              fontWeight: 700,
+                              color: "#374151",
+                            }}
+                          >
+                            {plan.minWithdrawal}
+                          </span>
+                        )}
+
+                        {row.type === "cross" && (
+                          <div
+                            style={{
+                              display: "flex",
+                              justifyContent: "center",
+                            }}
+                          >
+                            <svg
+                              width="18"
+                              height="18"
+                              fill="none"
+                              stroke="#3b82f6"
+                              strokeWidth="2.5"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              viewBox="0 0 24 24"
+                            >
+                              <path d="M6 18L18 6M6 6l12 12" />
+                            </svg>
+                          </div>
+                        )}
+
+                        {row.type === "profitLimit" && (
+                          <span
+                            style={{
+                              fontSize: 11,
+                              fontWeight: 700,
+                              color: "#374151",
+                            }}
+                          >
+                            {plan.profitLimit}
+                          </span>
+                        )}
+                      </td>
+                    ))}
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   );
