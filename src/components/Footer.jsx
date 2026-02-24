@@ -156,8 +156,7 @@ export default function Footer() {
           </h3>
           <div className="space-y-4 text-gray-400 text-sm leading-relaxed">
             <p>
-              <span className="font-semibold text-white">License:</span> QUBER
-              CAPITAL LLC is a duly incorporated entity under the Limited
+              QUBER CAPITAL LLC is a duly incorporated entity under the Limited
               Liabilities Act, Chapter 151 of the Revised Laws of Saint Vincent
               and the Grenadines 2009 (Company Registration No. 4289 LLC 2025).
               Our global operations are headquartered at Suite 305, Griffith
