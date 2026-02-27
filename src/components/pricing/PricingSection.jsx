@@ -159,9 +159,12 @@ export default function PricingSection() {
                 </div>
 
                 {/* RIGHT BUTTON */}
-                <button className="bg-blue-600 text-white px-10 py-3 rounded-full hover:bg-blue-700 transition-colors whitespace-nowrap font-medium cursor-pointer">
+                <a
+                  href="tel:+971523097146"
+                  className="bg-blue-600 text-white px-10 py-3 rounded-full hover:bg-blue-700 transition-colors whitespace-nowrap font-medium cursor-pointer inline-block"
+                >
                   Call Now
-                </button>
+                </a>
               </div>
             </div>
           </div>

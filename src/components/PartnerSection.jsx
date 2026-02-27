@@ -42,9 +42,11 @@ export default function PartnerSection() {
                 </div>
               </div>
               <div className="flex justify-end">
-                <RippleButton className="bg-blue-600 text-white hover:bg-blue-400 px-8 py-4 rounded-full font-semibold text-lg flex items-center gap-2">
-                  Call Now
-                </RippleButton>
+                <a href="tel:+971523097146">
+                  <RippleButton className="bg-blue-600 text-white hover:bg-blue-400 px-8 py-4 rounded-full font-semibold text-lg flex items-center gap-2">
+                    Call Now
+                  </RippleButton>
+                </a>
               </div>
             </div>
           </div>
