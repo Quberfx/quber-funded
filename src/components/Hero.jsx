@@ -92,9 +92,15 @@ export default function Hero() {
             </ScrollReveal>
 
             <ScrollReveal direction="up" delay={400}>
-              <RippleButton className="mt-8 bg-white text-blue-600 hover:bg-gray-100 px-8 py-4 rounded-full font-semibold text-lg flex items-center gap-2">
-                Get Funded →
-              </RippleButton>
+              <a
+                href="https://prop.qubercapital.com/register"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <RippleButton className="mt-8 bg-white text-blue-600 hover:bg-gray-100 px-8 py-4 rounded-full font-semibold text-lg flex items-center gap-2">
+                  Get Funded →
+                </RippleButton>
+              </a>
             </ScrollReveal>
           </div>
         </div>

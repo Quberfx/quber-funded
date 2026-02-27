@@ -179,7 +179,10 @@ export default function PricingTable() {
                             >
                               {plan.account}
                             </div>
-                            <button
+                            <a
+                              href="https://prop.qubercapital.com/register"
+                              target="_blank"
+                              rel="noopener noreferrer"
                               style={{
                                 background: "#1D60E5",
                                 color: "white",
@@ -190,10 +193,12 @@ export default function PricingTable() {
                                 fontWeight: 500,
                                 fontSize: 10,
                                 whiteSpace: "nowrap",
+                                textDecoration: "none",
+                                display: "inline-block",
                               }}
                             >
                               Get Plan
-                            </button>
+                            </a>
                           </div>
                         )}
 

@@ -359,15 +359,21 @@ export default function FundingPaths() {
 
                   <ScrollReveal direction="right" delay={300} scale={true}>
                     <div className="rounded-full inline-block">
-                      <RippleButton
-                        style={{
-                          boxShadow: "0 0 16px 0 #6296FF",
-                          border: "2px solid #97BAFF",
-                        }}
-                        className="bg-white text-blue-600 hover:bg-gray-100 transition-all px-8 py-4 rounded-full font-semibold text-lg flex items-center gap-2 flex-shrink-0 border border-[#97BAFF]"
+                      <a
+                        href="https://prop.qubercapital.com/register"
+                        target="_blank"
+                        rel="noopener noreferrer"
                       >
-                        Get Funded →
-                      </RippleButton>
+                        <RippleButton
+                          style={{
+                            boxShadow: "0 0 16px 0 #6296FF",
+                            border: "2px solid #97BAFF",
+                          }}
+                          className="bg-white text-blue-600 hover:bg-gray-100 transition-all px-8 py-4 rounded-full font-semibold text-lg flex items-center gap-2 flex-shrink-0 border border-[#97BAFF]"
+                        >
+                          Get Funded →
+                        </RippleButton>
+                      </a>
                     </div>
                   </ScrollReveal>
                 </div>

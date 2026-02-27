@@ -23,9 +23,15 @@ export default function ScaleCTA() {
             <RippleButton className="border border-white hover:bg-white hover:text-gray-900 text-white px-8 py-3 rounded-full font-semibold transition-colors">
               Contact us!
             </RippleButton>
-            <RippleButton className="bg-white text-blue-600 hover:bg-gray-100 px-8 py-4 rounded-full font-semibold text-lg flex justify-center items-center gap-2 text-center">
-              Get Funded →
-            </RippleButton>
+            <a
+              href="https://prop.qubercapital.com/register"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <RippleButton className="bg-white text-blue-600 hover:bg-gray-100 px-8 py-4 rounded-full font-semibold text-lg flex justify-center items-center gap-2 text-center">
+                Get Funded →
+              </RippleButton>
+            </a>
           </div>
         </ScrollReveal>
       </div>

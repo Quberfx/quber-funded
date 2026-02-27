@@ -86,9 +86,15 @@ export default function PerformanceSteps() {
             </ScrollReveal>
             <ScrollReveal direction="right" delay={200}>
               <div>
-                <RippleButton className="bg-blue-600 text-white hover:bg-blue-700 px-8 py-4 rounded-full font-semibold text-lg flex items-center gap-2">
-                  Get Funded with Quber →
-                </RippleButton>
+                <a
+                  href="https://prop.qubercapital.com/register"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <RippleButton className="bg-blue-600 text-white hover:bg-blue-700 px-8 py-4 rounded-full font-semibold text-lg flex items-center gap-2">
+                    Get Funded with Quber →
+                  </RippleButton>
+                </a>
               </div>
             </ScrollReveal>
           </div>

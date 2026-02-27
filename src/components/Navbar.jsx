@@ -67,7 +67,10 @@ export default function Navbar() {
     <header className="bg-white sticky top-0 z-50 border-b border-gray-200">
       <div className="max-w-[88rem] mx-auto px-8 lg:px-12 py-4 flex items-center justify-between">
         {/* LOGO */}
-        <Link to="/" className="flex items-center gap-2 font-semibold text-xl">
+        <a
+          href="https://www.quberfunded.com/"
+          className="flex items-center gap-2 font-semibold text-xl"
+        >
           <img
             src={QuberLogo}
             alt="Quber Logo"
@@ -76,7 +79,7 @@ export default function Navbar() {
           <span>
             Quber<span className="text-blue-600">Funded</span>
           </span>
-        </Link>
+        </a>
 
         {/* DESKTOP MENU */}
         <nav className="hidden md:flex gap-6 lg:gap-8 text-sm lg:text-base text-gray-600">
@@ -101,13 +104,23 @@ export default function Navbar() {
         {/* RIGHT ACTIONS */}
         <div className="flex items-center gap-3 lg:gap-4">
           {/* Desktop buttons */}
-          <button className="hidden md:block text-sm lg:text-base text-gray-700 font-medium cursor-pointer hover:text-gray-900 transition-colors">
+          <a
+            href="https://prop.qubercapital.com/register"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hidden md:block text-sm lg:text-base text-gray-700 font-medium cursor-pointer hover:text-gray-900 transition-colors"
+          >
             Register
-          </button>
+          </a>
 
-          <button className="hidden md:block text-sm lg:text-base bg-blue-600 text-white px-5 lg:px-6 py-2 lg:py-2.5 rounded-full hover:bg-blue-700 font-medium transition-colors cursor-pointer">
+          <a
+            href="https://prop.qubercapital.com/login"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hidden md:block text-sm lg:text-base bg-blue-600 text-white px-5 lg:px-6 py-2 lg:py-2.5 rounded-full hover:bg-blue-700 font-medium transition-colors cursor-pointer"
+          >
             Login
-          </button>
+          </a>
 
           {/* MOBILE HAMBURGER */}
           <button className="md:hidden p-2" onClick={() => setOpen(!open)}>
@@ -143,12 +156,24 @@ export default function Navbar() {
 
             {/* <hr className="my-2" /> */}
 
-            <RippleButton className="bg-white text-blue-600 hover:bg-gray-100 border-2 border-blue-600 px-8 py-3 rounded-full font-semibold text-base justify-center transition-colors">
-              Register
-            </RippleButton>
-            <RippleButton className="bg-blue-600 text-white hover:bg-blue-700 px-8 py-3 rounded-full font-semibold text-base justify-center transition-colors">
-              Login
-            </RippleButton>
+            <a
+              href="https://prop.qubercapital.com/register"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <RippleButton className="w-full bg-white text-blue-600 hover:bg-gray-100 border-2 border-blue-600 px-8 py-3 rounded-full font-semibold text-base justify-center transition-colors">
+                Register
+              </RippleButton>
+            </a>
+            <a
+              href="https://prop.qubercapital.com/login"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <RippleButton className="w-full bg-blue-600 text-white hover:bg-blue-700 px-8 py-3 rounded-full font-semibold text-base justify-center transition-colors">
+                Login
+              </RippleButton>
+            </a>
           </div>
         </div>
       )}
