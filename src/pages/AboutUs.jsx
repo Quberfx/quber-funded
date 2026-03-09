@@ -5,6 +5,8 @@ import {
 } from "../assets/images/index";
 import { useState, useEffect, useRef } from "react";
 import ScrollingBanner from "../components/ScrollingBanner";
+import SEO from "../components/SEO";
+import { pageSEO } from "../utils/seo";
 
 export default function AboutUs() {
   const blueCardRef = useRef(null);
@@ -128,6 +130,7 @@ export default function AboutUs() {
 
   return (
     <div className="min-h-screen">
+      <SEO {...pageSEO.about} />
       {/* Hero Section with Background */}
       <section className="relative bg-[#0a1628] text-white h-[300px] flex items-center justify-center">
         {/* Background image - Full screen */}

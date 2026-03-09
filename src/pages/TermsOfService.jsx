@@ -1,8 +1,11 @@
 import { TNCHeaderBg } from "../assets/images/index";
+import SEO from "../components/SEO";
+import { pageSEO } from "../utils/seo";
 
 export default function TermsOfService() {
   return (
     <div className="min-h-screen">
+      <SEO {...pageSEO.terms} />
       <style jsx>{`
         @keyframes fade-in {
           from {

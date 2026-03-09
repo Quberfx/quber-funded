@@ -7,7 +7,8 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "seo:validate": "echo 'Validating SEO files...' && test -f public/sitemap.xml && test -f public/robots.txt && echo 'SEO files validated successfully!'"
   },
   "dependencies": {
     "react": "^19.2.0",

@@ -10,10 +10,15 @@ import ScrollingBanner from "../../../components/ScrollingBanner";
 import FAQ from "../../../components/FAQ";
 import WelcomePopup from "../../../components/WelcomePopup";
 import HeroBlueSection from "../../../components/HeroBlueSection";
+import SEO from "../../../components/SEO";
+import StructuredData, { organizationSchema } from "../../../components/StructuredData";
+import { pageSEO } from "../../../utils/seo";
 
 export default function Landing() {
   return (
     <div className="w-full overflow-x-hidden">
+      <SEO {...pageSEO.home} />
+      <StructuredData data={organizationSchema} />
       {/* <WelcomePopup /> */}
       <Hero />
       <TradingViewTicker />

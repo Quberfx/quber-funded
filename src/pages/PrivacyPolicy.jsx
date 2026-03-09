@@ -1,8 +1,11 @@
 import { PrivacyPolicyHeaderBg } from "../assets/images/index";
+import SEO from "../components/SEO";
+import { pageSEO } from "../utils/seo";
 
 export default function PrivacyPolicy() {
   return (
     <div className="min-h-screen">
+      <SEO {...pageSEO.privacy} />
       <style jsx>{`
         @keyframes fade-in {
           from {
