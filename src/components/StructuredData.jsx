@@ -33,8 +33,8 @@ export const organizationSchema = {
   "name": "Quber Funded",
   "description": "Instant funded trading accounts without challenges. Trade forex, crypto, and indices with real capital starting at $5000.",
   "url": "https://quberfunded.com",
-  "logo": "https://quberfunded.com/src/assets/images/quber_logo.svg",
-  "image": "https://quberfunded.com/src/assets/images/Desktop_Quber_funded.jpg.jpeg",
+  "logo": "https://quberfunded.com/logo.svg",
+  "image": "https://quberfunded.com/logo.svg",
   "sameAs": [
     "https://twitter.com/quberfunded",
     "https://linkedin.com/company/quberfunded",
