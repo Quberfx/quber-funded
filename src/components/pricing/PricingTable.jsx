@@ -1,21 +1,12 @@
 import { useState, useEffect, useRef } from "react";
 
-const INSTANT_LITE = [
+const INSTANT_ACCOUNT = [
   { account: "$2K",   fee: "$59",   originalFee: "$119",  maxLoss: "6%", dailyLoss: "3%", payout: "Every 7 Days", profitShare: "70%", scalping: "Allowed", weekendHolding: "Allowed", profitLimit: "Unlimited", profitConsistency: "Not Required", ipRule: "No" },
-  { account: "$5K",   fee: "$149",  originalFee: "$299",  maxLoss: "6%", dailyLoss: "3%", payout: "Every 7 Days", profitShare: "70%", scalping: "Allowed", weekendHolding: "Allowed", profitLimit: "Unlimited", profitConsistency: "Not Required", ipRule: "No" },
-  { account: "$10K",  fee: "$289",  originalFee: "$499",  maxLoss: "6%", dailyLoss: "3%", payout: "Every 7 Days", profitShare: "70%", scalping: "Allowed", weekendHolding: "Allowed", profitLimit: "Unlimited", profitConsistency: "Not Required", ipRule: "No" },
-  { account: "$25K",  fee: "$749",  originalFee: "$1499", maxLoss: "6%", dailyLoss: "3%", payout: "Every 7 Days", profitShare: "70%", scalping: "Allowed", weekendHolding: "Allowed", profitLimit: "Unlimited", profitConsistency: "Not Required", ipRule: "No" },
+  { account: "$5K",   fee: "$129",  originalFee: "$299",  maxLoss: "6%", dailyLoss: "3%", payout: "Every 7 Days", profitShare: "70%", scalping: "Allowed", weekendHolding: "Allowed", profitLimit: "Unlimited", profitConsistency: "Not Required", ipRule: "No" },
+  { account: "$10K",  fee: "$229",  originalFee: "$499",  maxLoss: "6%", dailyLoss: "3%", payout: "Every 7 Days", profitShare: "70%", scalping: "Allowed", weekendHolding: "Allowed", profitLimit: "Unlimited", profitConsistency: "Not Required", ipRule: "No" },
+  { account: "$25K",  fee: "$699",  originalFee: "$1499", maxLoss: "6%", dailyLoss: "3%", payout: "Every 7 Days", profitShare: "70%", scalping: "Allowed", weekendHolding: "Allowed", profitLimit: "Unlimited", profitConsistency: "Not Required", ipRule: "No" },
   { account: "$50K",  fee: "$1599", originalFee: "$2999", maxLoss: "6%", dailyLoss: "3%", payout: "Every 7 Days", profitShare: "70%", scalping: "Allowed", weekendHolding: "Allowed", profitLimit: "Unlimited", profitConsistency: "Not Required", ipRule: "No" },
   { account: "$100K", fee: "$3799", originalFee: "$5999", maxLoss: "6%", dailyLoss: "3%", payout: "Every 7 Days", profitShare: "70%", scalping: "Allowed", weekendHolding: "Allowed", profitLimit: "Unlimited", profitConsistency: "Not Required", ipRule: "No" },
-];
-
-const INSTANT_PRO = [
-  { account: "$2K",   fee: "$89",   originalFee: "$199",  maxLoss: "8%", dailyLoss: "4%", payout: "Every 7 Days", profitShare: "70%", scalping: "Allowed", weekendHolding: "Allowed", profitLimit: "Unlimited", profitConsistency: "Not Required", ipRule: "No" },
-  { account: "$5K",   fee: "$229",  originalFee: "$399",  maxLoss: "8%", dailyLoss: "4%", payout: "Every 7 Days", profitShare: "70%", scalping: "Allowed", weekendHolding: "Allowed", profitLimit: "Unlimited", profitConsistency: "Not Required", ipRule: "No" },
-  { account: "$10K",  fee: "$449",  originalFee: "$799",  maxLoss: "8%", dailyLoss: "4%", payout: "Every 7 Days", profitShare: "70%", scalping: "Allowed", weekendHolding: "Allowed", profitLimit: "Unlimited", profitConsistency: "Not Required", ipRule: "No" },
-  { account: "$25K",  fee: "$1149", originalFee: "$1999", maxLoss: "8%", dailyLoss: "4%", payout: "Every 7 Days", profitShare: "70%", scalping: "Allowed", weekendHolding: "Allowed", profitLimit: "Unlimited", profitConsistency: "Not Required", ipRule: "No" },
-  { account: "$50K",  fee: "$2399", originalFee: "$3499", maxLoss: "8%", dailyLoss: "4%", payout: "Every 7 Days", profitShare: "70%", scalping: "Allowed", weekendHolding: "Allowed", profitLimit: "Unlimited", profitConsistency: "Not Required", ipRule: "No" },
-  { account: "$100K", fee: "$4999", originalFee: "$7999", maxLoss: "8%", dailyLoss: "4%", payout: "Every 7 Days", profitShare: "70%", scalping: "Allowed", weekendHolding: "Allowed", profitLimit: "Unlimited", profitConsistency: "Not Required", ipRule: "No" },
 ];
 
 const rows = [
@@ -138,53 +129,21 @@ function CheckIcon() {
 }
 
 export default function PricingTable() {
-  const [activeTab, setActiveTab] = useState("lite");
-  const [direction, setDirection] = useState("up");
-  const plans = activeTab === "lite" ? INSTANT_LITE : INSTANT_PRO;
-
-  const handleTabChange = (tab) => {
-    if (tab === activeTab) return;
-    // lite→pro = rolling up (higher values), pro→lite = rolling down
-    setDirection(tab === "pro" ? "up" : "down");
-    setActiveTab(tab);
-  };
+  const plans = INSTANT_ACCOUNT;
+  const direction = "up";
 
   return (
     <div className="w-full">
-      {/* Tab Switcher */}
+      {/* Account Label */}
       <div className="flex justify-center mb-8">
         <div
-          className="relative inline-flex rounded-full p-1"
+          className="relative inline-flex rounded-full px-10 py-3 text-sm font-semibold text-white"
           style={{
-            background: "linear-gradient(135deg, #e8f0fe 0%, #dbeafe 100%)",
-            boxShadow: "0 2px 12px rgba(29,96,229,0.10), inset 0 1px 3px rgba(29,96,229,0.08)",
+            background: "linear-gradient(135deg, #1D60E5 0%, #3b82f6 100%)",
+            boxShadow: "0 4px 14px rgba(29,96,229,0.35)",
           }}
         >
-          {/* Sliding pill */}
-          <span
-            aria-hidden="true"
-            className="absolute top-1 bottom-1 rounded-full transition-all duration-300 ease-in-out"
-            style={{
-              width: "calc(50% - 4px)",
-              left: activeTab === "lite" ? "4px" : "calc(50%)",
-              background: "linear-gradient(135deg, #1D60E5 0%, #3b82f6 100%)",
-              boxShadow: "0 4px 14px rgba(29,96,229,0.35)",
-            }}
-          />
-          <button
-            onClick={() => handleTabChange("lite")}
-            className="relative z-10 px-10 py-2.5 rounded-full text-sm font-semibold transition-colors duration-300 cursor-pointer"
-            style={{ color: activeTab === "lite" ? "#ffffff" : "#1D60E5", minWidth: 140 }}
-          >
-            Instant Lite
-          </button>
-          <button
-            onClick={() => handleTabChange("pro")}
-            className="relative z-10 px-10 py-2.5 rounded-full text-sm font-semibold transition-colors duration-300 cursor-pointer"
-            style={{ color: activeTab === "pro" ? "#ffffff" : "#1D60E5", minWidth: 140 }}
-          >
-            Instant Pro
-          </button>
+          Instant Account
         </div>
       </div>
 
